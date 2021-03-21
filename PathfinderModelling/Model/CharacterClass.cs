@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PathfinderModelling.Model
 {
-    public class CharacterClass
+    public abstract class CharacterClass
     {
         public int Id { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using PathfinderModelling.Model;
-using PathfinderModelling.Repository;
+using PathfinderModelling.Model.Classes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,8 +28,8 @@ namespace UI
 
             Classes = new List<CharacterClass>
             {
-                new Alchemist().Class,
-                new Ranger().Class,
+                new Alchemist(),
+                new Ranger(),
             };
         }
 
