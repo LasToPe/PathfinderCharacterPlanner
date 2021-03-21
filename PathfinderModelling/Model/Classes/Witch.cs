@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PathfinderModelling.Model.Classes
 {
-    class Witch : CharacterClass
+    public class Witch : CharacterClass
     {
         public Witch()
         {

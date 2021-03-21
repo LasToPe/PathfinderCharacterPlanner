@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PathfinderModelling.Model.Classes
 {
-    class Swashbuckler : CharacterClass
+    public class Swashbuckler : CharacterClass
     {
         public Swashbuckler()
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PathfinderModelling.Model.Classes
 {
-    class Summoner : CharacterClass
+    public class Summoner : CharacterClass
     {
         public Summoner()
         {
