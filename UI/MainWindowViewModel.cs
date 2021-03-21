@@ -34,6 +34,11 @@ namespace UI
                 new Arcanist(),
                 new Barbarian(),
                 new BarbarianUnchained(),
+                new Bard(),
+                new Bloodrager(),
+                new Brawler(),
+                new Cavalier(),
+
                 new Ranger(),
             };
         }
