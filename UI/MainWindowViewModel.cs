@@ -32,6 +32,7 @@ namespace UI
                 new Alchemist(),
                 new Antipaladin(),
                 new Arcanist(),
+                new Barbarian(),
                 new Ranger(),
             };
         }
