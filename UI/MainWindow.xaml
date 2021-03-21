@@ -56,7 +56,15 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-            <DataGrid x:Name="Grid" ItemsSource="{Binding CharacterLevels}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" PreviewMouseWheel="Grid_PreviewMouseWheel" CanUserSortColumns="False">
+            <DataGrid 
+                x:Name="Grid" 
+                ItemsSource="{Binding CharacterLevels}"
+                Margin="0,10"
+                AutoGenerateColumns="False" 
+                CanUserAddRows="False" 
+                IsReadOnly="True" 
+                CanUserSortColumns="False"
+                PreviewMouseWheel="Grid_PreviewMouseWheel" >
                 <DataGrid.Resources>
                     <ResourceDictionary>
                         <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
@@ -90,7 +98,7 @@
                     <DataGridTextColumn Header="Fort Save" Binding="{Binding Fort, Converter={StaticResource BonusConverter}}" />
                     <DataGridTextColumn Header="Ref Save" Binding="{Binding Ref, Converter={StaticResource BonusConverter}}" />
                     <DataGridTextColumn Header="Will Save" Binding="{Binding Will, Converter={StaticResource BonusConverter}}" />
-                    <DataGridTextColumn Header="Abilities" Binding="{Binding ClassAbilities}" />
+                    <DataGridTextColumn Header="Abilities" Binding="{Binding ClassAbilities}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
