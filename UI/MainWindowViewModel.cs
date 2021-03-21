@@ -41,6 +41,16 @@ namespace UI
                 new Cleric(),
                 new Druid(),
                 new Fighter(),
+                new Gunslinger(),
+                new Hunter(),
+                new Inquisitor(),
+                new Investigator(),
+                new Kineticist(),
+                new Magus(),
+                new Medium(),
+                new Mesmerist(),
+                new Monk(),
+                new MonkUnchained(),
 
                 new Ranger(),
             };
