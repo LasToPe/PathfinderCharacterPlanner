@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using PathfinderModelling;
 using PathfinderModelling.Model;
 using PathfinderModelling.Model.Classes;
 using System;
@@ -39,9 +40,23 @@ namespace UI
             {
                 var characterLevel = CharacterLevels[i];
                 if (characterLevel.Class == null) continue;
-
-                characterLevel.BabFraction = i == 0 ? characterLevel.Class.BaseAttackBonusFraction : CharacterLevels[i - 1].BabFraction + characterLevel.Class.BaseAttackBonusFraction;
+                
+                // Update Class Level
                 characterLevel.ClassLevel = CharacterLevels.Where(l => l.Class != null && l.Level <= characterLevel.Level).Count(l => l.Class.GetType().Equals(characterLevel.Class.GetType()));
+
+                // Update BAB
+                var bab = PathfinderModelling.Repository.BaseAttackBonus.GetBab(characterLevel.Class.BaseAttackBonus)[characterLevel.ClassLevel - 1];
+                characterLevel.BAB = i == 0 ? bab : CharacterLevels[i - 1].BAB + bab;
+
+                // Update saves
+                var fort = PathfinderModelling.Repository.SavingThrow.GetSavingThrow(characterLevel.Class.FortitudeSave)[characterLevel.ClassLevel - 1];
+                var refl = PathfinderModelling.Repository.SavingThrow.GetSavingThrow(characterLevel.Class.ReflexSave)[characterLevel.ClassLevel - 1];
+                var will = PathfinderModelling.Repository.SavingThrow.GetSavingThrow(characterLevel.Class.WillSave)[characterLevel.ClassLevel - 1];
+
+                characterLevel.Fort = i == 0 ? fort : CharacterLevels[i - 1].Fort + fort;
+                characterLevel.Ref = i == 0 ? refl : CharacterLevels[i - 1].Ref + refl;
+                characterLevel.Will = i == 0 ? will : CharacterLevels[i - 1].Will + will;
+
                 characterLevel.RaisePropertyChanged(null);
             }
             RaisePropertyChanged(null);
@@ -53,8 +68,7 @@ namespace UI
         public int Level { get; set; }
         public CharacterClass Class { get; set; }
         public int ClassLevel { get; set; }
-        public float BabFraction { get; set; }
-        public int BAB => (int)Math.Floor(BabFraction);
+        public int BAB { get; set; } = 0;
         public string BaseAttack
         {
             get
@@ -68,6 +82,11 @@ namespace UI
                 return result;
             }
         }
+
+        public int Fort { get; set; }
+        public int Ref { get; set; }
+        public int Will { get; set; }
+
         public string ClassAbilities => Class != null ? string.Join(", ", Class.ClassAbilities.Where(a => a.Level == ClassLevel).Select(a => a.Name)) : "";
     }
 }

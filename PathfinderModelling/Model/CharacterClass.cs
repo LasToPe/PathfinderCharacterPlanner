@@ -16,7 +16,6 @@ namespace PathfinderModelling.Model
         public IEnumerable<ClassSkill> ClassSkills { get; set; } = new List<ClassSkill>();
         public int SkillPointsPerLevel { get; set; }
         public BaseAttackBonus BaseAttackBonus { get; set; }
-        public float BaseAttackBonusFraction { get; set; }
         public SavingThrow FortitudeSave { get; set; }
         public SavingThrow ReflexSave { get; set; }
         public SavingThrow WillSave { get; set; }

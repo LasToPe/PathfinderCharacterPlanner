@@ -12,7 +12,6 @@ namespace PathfinderModelling.Model.Classes
             Name = "Ranger";
             Alignment = "Any";
             BaseAttackBonus = BaseAttackBonus.Full;
-            BaseAttackBonusFraction = 1;
             FortitudeSave = SavingThrow.Good;
             ReflexSave = SavingThrow.Good;
             WillSave = SavingThrow.Bad;

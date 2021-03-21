@@ -3,14 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UI" xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:UI" xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:converters="clr-namespace:UI.Converters"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1200">
     <Window.DataContext>
         <local:MainWindowViewModel />
     </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <converters:BonusConverter x:Key="BonusConverter" />
+        </ResourceDictionary>
+    </Window.Resources>
     <ScrollViewer x:Name="Viewer">
-        <StackPanel>
+        <StackPanel Margin="10">
             <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="Classes:" />
             <ItemsControl ItemsSource="{Binding ActiveClasses}" HorizontalAlignment="Left">
                 <ItemsControl.ItemTemplate>
@@ -81,6 +87,9 @@
                     </DataGridTemplateColumn>
                     <DataGridTextColumn Header="Class Level" Binding="{Binding ClassLevel}" />
                     <DataGridTextColumn Header="Base Attack Bonus" Binding="{Binding BaseAttack}" />
+                    <DataGridTextColumn Header="Fort Save" Binding="{Binding Fort, Converter={StaticResource BonusConverter}}" />
+                    <DataGridTextColumn Header="Ref Save" Binding="{Binding Ref, Converter={StaticResource BonusConverter}}" />
+                    <DataGridTextColumn Header="Will Save" Binding="{Binding Will, Converter={StaticResource BonusConverter}}" />
                     <DataGridTextColumn Header="Abilities" Binding="{Binding ClassAbilities}" />
                 </DataGrid.Columns>
             </DataGrid>

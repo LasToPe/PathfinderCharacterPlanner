@@ -11,7 +11,6 @@ namespace PathfinderModelling.Model.Classes
             Name = "Alchemist";
             Alignment = "Any";
             BaseAttackBonus = BaseAttackBonus.Medium;
-            BaseAttackBonusFraction = 0.75f;
             FortitudeSave = SavingThrow.Good;
             ReflexSave = SavingThrow.Good;
             WillSave = SavingThrow.Bad;

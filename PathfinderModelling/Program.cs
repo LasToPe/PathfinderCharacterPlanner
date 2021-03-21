@@ -10,24 +10,24 @@ namespace PathfinderModelling
     {
         static void Main(string[] args)
         {
-            Ranger ranger = new Ranger();
-            Character character = new Character();
+            //Ranger ranger = new Ranger();
+            //Character character = new Character();
 
-            character.Classes.Add(ranger.Class);
+            //character.Classes.Add(ranger.Class);
 
-            var blightwarden = ranger.Class.Archetypes.Find(a => a.Name == "Blightwarden");
+            //var blightwarden = ranger.Class.Archetypes.Find(a => a.Name == "Blightwarden");
 
-            //character.AddArchetype(ranger.Class.Archetypes.Find(a => a.Name == "Battle Scout"));
-            //character.AddArchetype(ranger.Class.Archetypes.Find(a => a.Name == "Beast Master"));
-            character.Classes.First().AddArchetype(blightwarden);
-
-            PrintAbilities(character);
-
-            //character.RemoveArchetype(blightwarden);
+            ////character.AddArchetype(ranger.Class.Archetypes.Find(a => a.Name == "Battle Scout"));
+            ////character.AddArchetype(ranger.Class.Archetypes.Find(a => a.Name == "Beast Master"));
+            //character.Classes.First().AddArchetype(blightwarden);
 
             //PrintAbilities(character);
 
-            Console.ReadLine();
+            ////character.RemoveArchetype(blightwarden);
+
+            ////PrintAbilities(character);
+
+            //Console.ReadLine();
         }
 
         static void PrintAbilities(Character character)
