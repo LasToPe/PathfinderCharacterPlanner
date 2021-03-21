@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace UI
@@ -27,33 +28,10 @@ namespace UI
             }
             CharacterLevels = collection;
 
-            Classes = new List<CharacterClass>
-            {
-                new Alchemist(),
-                new Antipaladin(),
-                new Arcanist(),
-                new Barbarian(),
-                new BarbarianUnchained(),
-                new Bard(),
-                new Bloodrager(),
-                new Brawler(),
-                new Cavalier(),
-                new Cleric(),
-                new Druid(),
-                new Fighter(),
-                new Gunslinger(),
-                new Hunter(),
-                new Inquisitor(),
-                new Investigator(),
-                new Kineticist(),
-                new Magus(),
-                new Medium(),
-                new Mesmerist(),
-                new Monk(),
-                new MonkUnchained(),
-
-                new Ranger(),
-            };
+            Classes = new List<CharacterClass>();
+            var types = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == "PathfinderModelling").ExportedTypes.Where(t => t.Namespace == "PathfinderModelling.Model.Classes");
+            foreach (var type in types)
+                Classes.Add(Activator.CreateInstance(type) as CharacterClass);
         }
 
         public void UpdateCharacterLevels()
