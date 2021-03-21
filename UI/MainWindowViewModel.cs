@@ -38,6 +38,9 @@ namespace UI
                 new Bloodrager(),
                 new Brawler(),
                 new Cavalier(),
+                new Cleric(),
+                new Druid(),
+                new Fighter(),
 
                 new Ranger(),
             };
