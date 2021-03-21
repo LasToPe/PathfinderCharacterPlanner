@@ -26,6 +26,7 @@ namespace PathfinderModelling.Model.Classes
                 new ClassAbility { Name = "Inspire Courage +2", Level = 5 },
                 new ClassAbility { Name = "Inspire Courage +3", Level = 11 },
                 new ClassAbility { Name = "Inspire Courage +4", Level = 17 },
+                new ClassAbility { Name = "Spells", Level = 1 },
                 new ClassAbility { Name = "Inspire Competence +2", Level = 3 },
                 new ClassAbility { Name = "Inspire Competence +3", Level = 7 },
                 new ClassAbility { Name = "Inspire Competence +4", Level = 11 },
