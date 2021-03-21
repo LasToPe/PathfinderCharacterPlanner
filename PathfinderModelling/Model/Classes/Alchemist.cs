@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace PathfinderModelling.Model.Classes
@@ -50,6 +51,40 @@ namespace PathfinderModelling.Model.Classes
                 new ClassAbility { Name = "Instant Alchemy", Level = 18 },
                 new ClassAbility { Name = "Grand Discovery", Level = 20 },
             };
+
+            Archetypes.Add(Aerochemist);
+        }
+
+        private Archetype Aerochemist
+        {
+            get
+            {
+                return new Archetype
+                {
+                    Name = "Aerochemist",
+                    ArchetypeAbilities = new List<ArchetypeAbility>
+                    {
+                        new ArchetypeAbility
+                        {
+                            Name = "Aeromantic Concoction",
+                            Level = 1,
+                            ReplacedAbilities = new List<ClassAbility>(ClassAbilities.Where(a => a.Name == "Mutagen" || a.Name == "Swift Poisoning" || a.Name == "Persistent Mutagen"))
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Bombs Away",
+                            Level = 2,
+                            ReplacedAbilities = new List<ClassAbility>(ClassAbilities.Where(a => a.Name == "Poison Use" || a.Name == "Swift Alchemy"))
+                        },
+                        new ArchetypeAbility 
+                        { 
+                            Name = "Aerodynamic Prowess", 
+                            Level = 2,
+                            ReplacedAbilities = new List<ClassAbility>(ClassAbilities.Where(a => a.Name.Contains("Poison Resistance"))) 
+                        }
+                    }
+                };
+            }
         }
     }
 }
