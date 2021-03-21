@@ -30,6 +30,8 @@ namespace UI
             Classes = new List<CharacterClass>
             {
                 new Alchemist(),
+                new Antipaladin(),
+                new Arcanist(),
                 new Ranger(),
             };
         }
