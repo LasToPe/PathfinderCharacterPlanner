@@ -8,7 +8,7 @@ namespace PathfinderModelling.Model.Classes
     {
         public Paladin()
         {
-            Name = "Paldin";
+            Name = "Paladin";
             Alignment = "Lawful Good";
             BaseAttackBonus = BaseAttackBonus.Full;
             FortitudeSave = SavingThrow.Good;
