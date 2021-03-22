@@ -12,8 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI.ViewModels;
 
-namespace UI
+namespace UI.Dialogs
 {
     /// <summary>
     /// Interaction logic for ClassSelectorDialog.xaml
@@ -21,11 +22,12 @@ namespace UI
     public partial class ClassSelectorDialog : UserControl
     {
         private int _level;
-        public ClassSelectorDialog(int level, object dataContext)
+        private MainWindowViewModel _mainModel;
+        public ClassSelectorDialog(int level, MainWindowViewModel mainModel)
         {
             InitializeComponent();
             _level = level;
-            DataContext = dataContext;
+            _mainModel = mainModel;
         }
 
         private CharacterClass _characterClass = null;
@@ -39,8 +41,8 @@ namespace UI
         {
             if (_characterClass != null)
             {
-                (DataContext as MainWindowViewModel).CharacterLevels[_level - 1].Class = _characterClass;
-                (DataContext as MainWindowViewModel).UpdateCharacterLevels();
+                _mainModel.CharacterLevels[_level - 1].Class = _characterClass;
+                _mainModel.UpdateCharacterLevels();
             }
 
             DialogHost.Close("Main");

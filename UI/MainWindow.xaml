@@ -5,11 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI" xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" 
         xmlns:converters="clr-namespace:UI.Converters"
+        DataContext="{Binding Source={StaticResource Locator}, Path=MainWindowViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1200">
-    <Window.DataContext>
-        <local:MainWindowViewModel />
-    </Window.DataContext>
     <Window.Resources>
         <ResourceDictionary>
             <converters:BonusConverter x:Key="BonusConverter" />
@@ -131,7 +129,7 @@
                         <DataGridTemplateColumn Header="Abilities" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding ClassAbilities}" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding ClassAbilities}" VerticalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

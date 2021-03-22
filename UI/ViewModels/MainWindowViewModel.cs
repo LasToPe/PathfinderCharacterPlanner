@@ -9,13 +9,11 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace UI
+namespace UI.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
         public ObservableCollection<CharacterLevel> CharacterLevels { get; }
-
-        public List<CharacterClass> Classes { get; }
 
         public HashSet<CharacterClass> ActiveClasses => CharacterLevels.Where(cl => cl.Class != null).Select(cl => cl.Class).ToHashSet();
 
@@ -27,11 +25,6 @@ namespace UI
                 collection.Add(new CharacterLevel { Level = i });
             }
             CharacterLevels = collection;
-
-            Classes = new List<CharacterClass>();
-            var types = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == "PathfinderModelling").ExportedTypes.Where(t => t.Namespace == "PathfinderModelling.Model.Classes");
-            foreach (var type in types)
-                Classes.Add(Activator.CreateInstance(type) as CharacterClass);
         }
 
         public void UpdateCharacterLevels()

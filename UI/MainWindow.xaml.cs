@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MaterialDesignThemes.Wpf;
+using UI.ViewModels;
 
 namespace UI
 {
@@ -79,7 +80,7 @@ namespace UI
         private void SetClass_Click(object sender, RoutedEventArgs e)
         {
             var level = ((sender as FrameworkElement).DataContext as CharacterLevel).Level;
-            Main.ShowDialog(new ClassSelectorDialog(level, DataContext));
+            Main.ShowDialog(new Dialogs.ClassSelectorDialog(level, DataContext as MainWindowViewModel));
         }
     }
 }
