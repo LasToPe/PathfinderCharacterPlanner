@@ -18,33 +18,36 @@ using UI.ViewModels;
 namespace UI.Dialogs
 {
     /// <summary>
-    /// Interaction logic for ClassSelectorDialog.xaml
+    /// Interaction logic for ArchetypeSelectorDialog.xaml
     /// </summary>
-    public partial class ClassSelectorDialog : UserControl
+    public partial class ArchetypeSelectorDialog : UserControl
     {
-        private int _level;
-        public ClassSelectorDialog(int level)
+        public ArchetypeSelectorDialog()
         {
             InitializeComponent();
-            _level = level;
         }
 
-        private CharacterClass _characterClass = null;
+        private Archetype _archetype = null;
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _characterClass = (sender as ListView).SelectedValue as CharacterClass;
+            _archetype = (sender as ListView).SelectedItem as Archetype;
         }
 
-        private void SetClass_Click(object sender, RoutedEventArgs e)
+        private void ApplyArchetype_Click(object sender, RoutedEventArgs e)
         {
-            if (_characterClass != null)
+            if (_archetype != null)
             {
-                var mainModel = App.ServiceProvider.GetRequiredService<MainWindowViewModel>();
-                mainModel.CharacterLevels[_level - 1].Class = _characterClass;
-                mainModel.UpdateCharacterLevels();
+                try
+                {
+                    (DataContext as ArchetypeSelectorDialogViewModel).Class.AddArchetype(_archetype);
+                    App.ServiceProvider.GetRequiredService<MainWindowViewModel>().UpdateCharacterLevels();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-
             DialogHost.Close("Main");
         }
 

@@ -32,15 +32,8 @@
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
                                 <TextBlock Grid.Column="0" Text="{Binding Name}" Margin="0,0,10,0" VerticalAlignment="Center" />
-                                <ComboBox Grid.Column="1" x:Name="ArchetypeComboBox" ItemsSource="{Binding Archetypes}" MinWidth="80" Margin="0,0,10,0" VerticalAlignment="Center">
-                                    <ComboBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Name}" />
-                                        </DataTemplate>
-                                    </ComboBox.ItemTemplate>
-                                </ComboBox>
-                                <Button Grid.Column="2" Content="Add Archetype" Click="AddArchetype_Click" CommandParameter="{Binding ElementName=ArchetypeComboBox, Path=SelectedValue}" />
-                                <ItemsControl Grid.Column="1" Grid.Row="1" ItemsSource="{Binding AppliedArchetypes}">
+                                <Button Grid.Column="1" Content="Add Archetype" Click="AddArchetype_Click"/>
+                                <ItemsControl Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" ItemsSource="{Binding AppliedArchetypes}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">

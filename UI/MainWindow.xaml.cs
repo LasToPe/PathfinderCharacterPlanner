@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MaterialDesignThemes.Wpf;
 using UI.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace UI
 {
@@ -46,18 +47,21 @@ namespace UI
 
         private void AddArchetype_Click(object sender, RoutedEventArgs e)
         {
-            var characterClass = (sender as FrameworkElement).DataContext as CharacterClass;
-            var archetype = (sender as Button).CommandParameter as Archetype;
-            try
-            {
-                characterClass.AddArchetype(archetype);
-                _vm.RaisePropertyChanged(null);
-                _vm.UpdateCharacterLevels();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //var characterClass = (sender as FrameworkElement).DataContext as CharacterClass;
+            //var archetype = (sender as Button).CommandParameter as Archetype;
+            //try
+            //{
+            //    characterClass.AddArchetype(archetype);
+            //    _vm.RaisePropertyChanged(null);
+            //    _vm.UpdateCharacterLevels();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            var @class = (sender as Button).DataContext as CharacterClass;
+            App.ServiceProvider.GetRequiredService<ArchetypeSelectorDialogViewModel>().Class = @class;
+            Main.ShowDialog(new Dialogs.ArchetypeSelectorDialog());
         }
 
         private void RemoveArchetype_Click(object sender, RoutedEventArgs e)
@@ -80,7 +84,7 @@ namespace UI
         private void SetClass_Click(object sender, RoutedEventArgs e)
         {
             var level = ((sender as FrameworkElement).DataContext as CharacterLevel).Level;
-            Main.ShowDialog(new Dialogs.ClassSelectorDialog(level, DataContext as MainWindowViewModel));
+            Main.ShowDialog(new Dialogs.ClassSelectorDialog(level));
         }
     }
 }
