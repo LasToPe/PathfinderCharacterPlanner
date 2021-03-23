@@ -29,6 +29,7 @@ namespace UI
             services.AddSingleton<MainWindowViewModel>();
             services.AddSingleton<ClassSelectorDialogViewModel>();
             services.AddSingleton<ArchetypeSelectorDialogViewModel>();
+            services.AddSingleton<SpellsViewDialogViewModel>();
         }
     }
 }

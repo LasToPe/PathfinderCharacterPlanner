@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using MaterialDesignThemes.Wpf;
 using UI.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using UI.Dialogs;
 
 namespace UI
 {
@@ -49,7 +50,7 @@ namespace UI
         {
             var @class = (sender as Button).DataContext as CharacterClass;
             App.ServiceProvider.GetRequiredService<ArchetypeSelectorDialogViewModel>().Class = @class;
-            Main.ShowDialog(new Dialogs.ArchetypeSelectorDialog());
+            Main.ShowDialog(new ArchetypeSelectorDialog());
         }
 
         private void RemoveArchetype_Click(object sender, RoutedEventArgs e)
@@ -72,7 +73,7 @@ namespace UI
         private void SetClass_Click(object sender, RoutedEventArgs e)
         {
             var level = ((sender as FrameworkElement).DataContext as CharacterLevel).Level;
-            Main.ShowDialog(new Dialogs.ClassSelectorDialog(level));
+            Main.ShowDialog(new ClassSelectorDialog(level));
         }
 
         private void SetAllLevels_Click(object sender, RoutedEventArgs e)
@@ -83,6 +84,12 @@ namespace UI
                 cl.Class = @class;
             }
             _vm.UpdateCharacterLevels();
+        }
+
+        private void ViewSpellCasting_Click(object sender, RoutedEventArgs e)
+        {
+            App.ServiceProvider.GetService<SpellsViewDialogViewModel>().Class = (sender as Button).DataContext as CharacterClass;
+            Main.ShowDialog(new SpellsViewDialog());
         }
     }
 }

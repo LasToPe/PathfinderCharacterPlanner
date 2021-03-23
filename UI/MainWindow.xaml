@@ -26,6 +26,7 @@
                                     <ColumnDefinition MinWidth="150" />
                                     <ColumnDefinition />
                                     <ColumnDefinition />
+                                    <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition />
@@ -34,6 +35,7 @@
                                 <TextBlock Grid.Column="0" Text="{Binding Name}" Margin="0,0,10,0" VerticalAlignment="Center" />
                                 <Button Grid.Column="1" Content="Add Archetype" Click="AddArchetype_Click" Margin="5,2"/>
                                 <Button Grid.Column="2" Content="Set All Levels" Click="SetAllLevels_Click" Margin="5,2" />
+                                <Button Grid.Column="3" Content="View Spellcasting" Click="ViewSpellCasting_Click" Margin="5,2" IsEnabled="{Binding SpellCaster}" />
                                 <ItemsControl Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" ItemsSource="{Binding AppliedArchetypes}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>

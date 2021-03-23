@@ -10,5 +10,6 @@ namespace UI.ViewModels
         public MainWindowViewModel MainWindowViewModel => App.ServiceProvider.GetRequiredService<MainWindowViewModel>();
         public ClassSelectorDialogViewModel ClassSelectorDialogViewModel => App.ServiceProvider.GetRequiredService<ClassSelectorDialogViewModel>();
         public ArchetypeSelectorDialogViewModel ArchetypeSelectorDialogViewModel => App.ServiceProvider.GetRequiredService<ArchetypeSelectorDialogViewModel>();
+        public SpellsViewDialogViewModel SpellsViewDialogViewModel => App.ServiceProvider.GetRequiredService<SpellsViewDialogViewModel>();
     }
 }
