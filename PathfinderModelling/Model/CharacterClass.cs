@@ -46,6 +46,7 @@ namespace PathfinderModelling.Model
                     ClassAbilities.Remove(replacedAbility);
                 }
                 ClassAbilities.Add(ability);
+                ability.Add?.Invoke();
             }
 
             AppliedArchetypes.Add(archetype);
@@ -59,6 +60,7 @@ namespace PathfinderModelling.Model
             foreach (var ability in archetype.ArchetypeAbilities)
             {
                 ClassAbilities.Remove(ability);
+                ability.Remove?.Invoke();
 
                 foreach (var replacedAbility in ability.ReplacedAbilities)
                 {

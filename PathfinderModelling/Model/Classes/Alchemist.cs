@@ -91,6 +91,10 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(BrambleBrewer);
             Archetypes.Add(Chirurgeon);
             Archetypes.Add(CloneMaster);
+            Archetypes.Add(Concocter);
+            Archetypes.Add(ConstructRider);
+            Archetypes.Add(CrimsonChymist);
+            Archetypes.Add(Cruourchymist);
         }
 
         #region ClassAbilities
@@ -239,31 +243,26 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Demolition Bomb 1/day",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility>()
                         },
                         new ArchetypeAbility
                         {
                             Name = "Demolition Bomb 2/day",
                             Level = 5,
-                            ReplacedAbilities = new List<ClassAbility>()
                         },
                         new ArchetypeAbility
                         {
                             Name = "Demolition Bomb 3/day",
                             Level = 9,
-                            ReplacedAbilities = new List<ClassAbility>()
                         },
                         new ArchetypeAbility
                         {
                             Name = "Demolition Bomb 4/day",
                             Level = 13,
-                            ReplacedAbilities = new List<ClassAbility>()
                         },
                         new ArchetypeAbility
                         {
                             Name = "Demolition Bomb 5/day",
                             Level = 17,
-                            ReplacedAbilities = new List<ClassAbility>()
                         },
                         new ArchetypeAbility
                         {
@@ -337,7 +336,6 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Sureseal Alchemy",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility>()
                         },
                         new ArchetypeAbility
                         {
@@ -587,7 +585,6 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Blood Knowledge",
                             Level = 4,
-                            ReplacedAbilities = new List<ClassAbility>()
                         },
                     }
                 };
@@ -747,7 +744,6 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Lesser Simulacrum",
                             Level = 7,
-                            ReplacedAbilities = new List<ClassAbility>()
                         },
                         new ArchetypeAbility
                         {
@@ -759,14 +755,144 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Simulacrum",
                             Level = 13,
-                            ReplacedAbilities = new List<ClassAbility>()
                         },
                         new ArchetypeAbility
                         {
                             Name = "Clone",
                             Level = 16,
-                            ReplacedAbilities = new List<ClassAbility>()
                         },
+                    }
+                };
+            }
+        }
+        Archetype Concocter
+        {
+            get
+            {
+                return new Archetype
+                {
+                    Name = "Concocter",
+                    ArchetypeAbilities = new List<ArchetypeAbility>
+                    {
+                        new ArchetypeAbility
+                        {
+                            Name = "Mutagenic Mixology",
+                            Level = 2,
+                            ReplacedAbilities = new List<ClassAbility> { _discovery2, _discovery4 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Extracting Mixology",
+                            Level = 6,
+                            ReplacedAbilities = new List<ClassAbility> { _discovery6 }
+                        }
+                    }
+                };
+            }
+        }
+        Archetype ConstructRider
+        {
+            get
+            {
+                return new Archetype
+                {
+                    Name = "Construct Rider",
+                    ArchetypeAbilities = new List<ArchetypeAbility>
+                    {
+                        new ArchetypeAbility
+                        {
+                            Name = "Craft Mount",
+                            Level = 1,
+                            ReplacedAbilities = new List<ClassAbility> { _brewPotion, _mutagen, _discovery4 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Diminished Extracts",
+                            Level = 1,
+                            Add = () =>
+                            {
+                                foreach (var level in SpellCasting.CasterLevels)
+                                {
+                                    level.FirstLevelSpells -= 1;
+                                    level.SecondLevelSpells -= 1;
+                                    level.ThirdLevelSpells -= 1;
+                                    level.FourthLevelSpells -= 1;
+                                    level.FifthLevelSpells -= 1;
+                                    level.SixthLevelSpells -= 1;
+                                }
+                            },
+                            Remove = () =>
+                            {
+                                foreach (var level in SpellCasting.CasterLevels)
+                                {
+                                    level.FirstLevelSpells += 1;
+                                    level.SecondLevelSpells += 1;
+                                    level.ThirdLevelSpells += 1;
+                                    level.FourthLevelSpells += 1;
+                                    level.FifthLevelSpells += 1;
+                                    level.SixthLevelSpells += 1;
+                                }
+                            }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Construct Rider Discoveries",
+                            Level = 2,
+                        }
+                    }
+                };
+            }
+        }
+        Archetype CrimsonChymist
+        {
+            get
+            {
+                return new Archetype
+                {
+                    Name = "Crimson Chymist",
+                    ArchetypeAbilities = new List<ArchetypeAbility>
+                    {
+                        new ArchetypeAbility
+                        {
+                            Name = "Crimson Discoveries",
+                            Level = 2,
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Mantis Mutagen",
+                            Level = 1,
+                            ReplacedAbilities = new List<ClassAbility> { _mutagen }
+                        }
+                    }
+                };
+            }
+        }
+        Archetype Cruourchymist
+        {
+            get
+            {
+                return new Archetype
+                {
+                    Name = "Cruourchymist",
+                    ArchetypeAbilities = new List<ArchetypeAbility>
+                    {
+                        new ArchetypeAbility
+                        {
+                            Name = "Blood Famliliar",
+                            Level = 1,
+                            ReplacedAbilities = new List<ClassAbility> { _mutagen }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Blood Treatment",
+                            Level = 1,
+                            ReplacedAbilities = new List<ClassAbility> { _brewPotion }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Blood Augmentation",
+                            Level = 4,
+                        }
                     }
                 };
             }
