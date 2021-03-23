@@ -873,7 +873,7 @@ namespace PathfinderModelling.Model.Classes
             {
                 return new Archetype
                 {
-                    Name = "Cruourchymist",
+                    Name = "Cruorchymist",
                     ArchetypeAbilities = new List<ArchetypeAbility>
                     {
                         new ArchetypeAbility
