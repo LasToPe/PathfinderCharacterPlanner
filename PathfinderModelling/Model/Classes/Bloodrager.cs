@@ -14,6 +14,33 @@ namespace PathfinderModelling.Model.Classes
             FortitudeSave = SavingThrow.Good;
             ReflexSave = SavingThrow.Bad;
             WillSave = SavingThrow.Bad;
+            SpellCaster = true;
+            SpellCasting = new SpellCasting
+            {
+                CasterLevels = new List<CasterLevel>
+                {
+                    new CasterLevel( 1, null),
+                    new CasterLevel( 2, null),
+                    new CasterLevel( 3, null),
+                    new CasterLevel( 4, null, 1),
+                    new CasterLevel( 5, null, 1),
+                    new CasterLevel( 6, null, 1),
+                    new CasterLevel( 7, null, 1, 1),
+                    new CasterLevel( 8, null, 1, 1),
+                    new CasterLevel( 9, null, 2, 1),
+                    new CasterLevel(10, null, 2, 1, 1),
+                    new CasterLevel(11, null, 2, 1, 1),
+                    new CasterLevel(12, null, 2, 2, 1),
+                    new CasterLevel(13, null, 3, 2, 1, 1),
+                    new CasterLevel(14, null, 3, 2, 1, 1),
+                    new CasterLevel(15, null, 3, 2, 2, 1),
+                    new CasterLevel(16, null, 3, 3, 2, 1),
+                    new CasterLevel(17, null, 4, 3, 2, 1),
+                    new CasterLevel(18, null, 4, 3, 2, 2),
+                    new CasterLevel(19, null, 4, 3, 3, 2),
+                    new CasterLevel(20, null, 4, 4, 3, 2),
+                }
+            };
             ClassAbilities = new List<ClassAbility>
             {
                 new ClassAbility { Name = "Bloodline", Level = 1 },

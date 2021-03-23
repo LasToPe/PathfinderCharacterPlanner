@@ -14,6 +14,33 @@ namespace PathfinderModelling.Model.Classes
             FortitudeSave = SavingThrow.Bad;
             ReflexSave = SavingThrow.Good;
             WillSave = SavingThrow.Good;
+            SpellCaster = true;
+            SpellCasting = new SpellCasting()
+            {
+                CasterLevels = new List<CasterLevel>
+                {
+                    new CasterLevel( 1, null, 1),
+                    new CasterLevel( 2, null, 2),
+                    new CasterLevel( 3, null, 3),
+                    new CasterLevel( 4, null, 3, 1),
+                    new CasterLevel( 5, null, 4, 2),
+                    new CasterLevel( 6, null, 4, 3),
+                    new CasterLevel( 7, null, 4, 3, 1),
+                    new CasterLevel( 8, null, 4, 4, 2),
+                    new CasterLevel( 9, null, 5, 4, 3),
+                    new CasterLevel(10, null, 5, 4, 3, 1),
+                    new CasterLevel(11, null, 5, 4, 4, 2),
+                    new CasterLevel(12, null, 5, 5, 4, 3),
+                    new CasterLevel(13, null, 5, 5, 4, 3, 1),
+                    new CasterLevel(14, null, 5, 5, 4, 4, 2),
+                    new CasterLevel(15, null, 5, 5, 5, 4, 3),
+                    new CasterLevel(16, null, 5, 5, 5, 4, 3, 1),
+                    new CasterLevel(17, null, 5, 5, 5, 4, 4, 2),
+                    new CasterLevel(18, null, 5, 5, 5, 5, 4, 3),
+                    new CasterLevel(19, null, 5, 5, 5, 5, 5, 4),
+                    new CasterLevel(20, null, 5, 5, 5, 5, 5, 5),
+                }
+            };
             ClassAbilities = new List<ClassAbility>
             {
                 new ClassAbility { Name = "Bardic Knowledge", Level = 1 },

@@ -14,6 +14,33 @@ namespace PathfinderModelling.Model.Classes
             FortitudeSave = SavingThrow.Good;
             ReflexSave = SavingThrow.Bad;
             WillSave = SavingThrow.Good;
+            SpellCaster = true;
+            SpellCasting = new SpellCasting()
+            {
+                CasterLevels = new List<CasterLevel>
+                {
+                    new CasterLevel( 1, 3, 1),
+                    new CasterLevel( 2, 4, 2),
+                    new CasterLevel( 3, 4, 3),
+                    new CasterLevel( 4, 4, 3, 1),
+                    new CasterLevel( 5, 4, 4, 2),
+                    new CasterLevel( 6, 5, 4, 3),
+                    new CasterLevel( 7, 5, 4, 3, 1),
+                    new CasterLevel( 8, 5, 4, 4, 2),
+                    new CasterLevel( 9, 5, 5, 4, 3),
+                    new CasterLevel(10, 5, 5, 4, 3, 1),
+                    new CasterLevel(11, 5, 5, 4, 4, 2),
+                    new CasterLevel(12, 5, 5, 5, 4, 3),
+                    new CasterLevel(13, 5, 5, 5, 4, 3, 1),
+                    new CasterLevel(14, 5, 5, 5, 4, 4, 2),
+                    new CasterLevel(15, 5, 5, 5, 5, 4, 3),
+                    new CasterLevel(16, 5, 5, 5, 5, 4, 3, 1),
+                    new CasterLevel(17, 5, 5, 5, 5, 4, 4, 2),
+                    new CasterLevel(18, 5, 5, 5, 5, 5, 4, 3),
+                    new CasterLevel(19, 5, 5, 5, 5, 5, 5, 4),
+                    new CasterLevel(20, 5, 5, 5, 5, 5, 5, 5),
+                }
+            };
             ClassAbilities = new List<ClassAbility>
             {
                 new ClassAbility { Name = "Arcane Pool", Level = 1 },
