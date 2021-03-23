@@ -11,6 +11,6 @@ namespace PathfinderModelling.Model
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public IEnumerable<ArchetypeAbility> ArchetypeAbilities { get; set; }
+        public List<ArchetypeAbility> ArchetypeAbilities { get; set; }
     }
 }

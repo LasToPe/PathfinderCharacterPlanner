@@ -80,6 +80,6 @@ namespace UI.ViewModels
         public int Ref { get; set; }
         public int Will { get; set; }
 
-        public string ClassAbilities => Class != null ? string.Join(", ", Class.ClassAbilities.Where(a => a.Level == ClassLevel).Select(a => a.Name)) : "";
+        public string ClassAbilities => Class != null ? string.Join(", ", Class.ClassAbilities.Where(a => a.Level == ClassLevel).OrderBy(a => a.Name).Select(a => a.Name)) : "";
     }
 }

@@ -6,8 +6,6 @@ namespace PathfinderModelling.Model
 {
     public class ArchetypeAbility : ClassAbility
     {
-        public IEnumerable<ClassAbility> ReplacedAbilities { get; set; }
-
-        
+        public List<ClassAbility> ReplacedAbilities { get; set; }        
     }
 }
