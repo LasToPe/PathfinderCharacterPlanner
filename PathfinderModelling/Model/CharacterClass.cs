@@ -19,6 +19,7 @@ namespace PathfinderModelling.Model
         public SavingThrow FortitudeSave { get; set; }
         public SavingThrow ReflexSave { get; set; }
         public SavingThrow WillSave { get; set; }
+        public bool SpellCasting { get; set; } = false;
         public List<ClassAbility> ClassAbilities { get; set; } = new List<ClassAbility>();
 
         public List<Archetype> Archetypes { get; set; } = new List<Archetype>();

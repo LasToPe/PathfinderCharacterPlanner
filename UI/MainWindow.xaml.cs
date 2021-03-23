@@ -47,18 +47,6 @@ namespace UI
 
         private void AddArchetype_Click(object sender, RoutedEventArgs e)
         {
-            //var characterClass = (sender as FrameworkElement).DataContext as CharacterClass;
-            //var archetype = (sender as Button).CommandParameter as Archetype;
-            //try
-            //{
-            //    characterClass.AddArchetype(archetype);
-            //    _vm.RaisePropertyChanged(null);
-            //    _vm.UpdateCharacterLevels();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
             var @class = (sender as Button).DataContext as CharacterClass;
             App.ServiceProvider.GetRequiredService<ArchetypeSelectorDialogViewModel>().Class = @class;
             Main.ShowDialog(new Dialogs.ArchetypeSelectorDialog());
@@ -85,6 +73,16 @@ namespace UI
         {
             var level = ((sender as FrameworkElement).DataContext as CharacterLevel).Level;
             Main.ShowDialog(new Dialogs.ClassSelectorDialog(level));
+        }
+
+        private void SetAllLevels_Click(object sender, RoutedEventArgs e)
+        {
+            var @class = (sender as Button).DataContext as CharacterClass;
+            foreach (var cl in _vm.CharacterLevels)
+            {
+                cl.Class = @class;
+            }
+            _vm.UpdateCharacterLevels();
         }
     }
 }
