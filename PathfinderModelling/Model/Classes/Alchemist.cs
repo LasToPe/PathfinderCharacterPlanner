@@ -116,7 +116,7 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new Herbalist(this));
             Archetypes.Add(new Homunculist(this));
             Archetypes.Add(new Horticulturist(this));
-            Archetypes.Add(IceChemist);
+            Archetypes.Add(new IceChemist(this));
         }
 
         public void LimitedExtracts(bool activate)
@@ -219,90 +219,5 @@ namespace PathfinderModelling.Model.Classes
         public ClassAbility InstantAlchemy { get => _instantAlchemy; set => _instantAlchemy = value; }
         public ClassAbility GrandDiscovery { get => _grandDiscovery; set => _grandDiscovery = value; }
         #endregion
-        Archetype IceChemist
-        {
-            get
-            {
-                return new Archetype
-                {
-                    Name = "Ice Chemist",
-                    ArchetypeAbilities = new List<ArchetypeAbility>
-                    {
-                        new ArchetypeAbility
-                        {
-                            Name = "Icy Bombs 1d6",
-                            Level = Bomb1.Level,
-                            ReplacedAbilities = new List<ClassAbility> { Bomb1 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Icy Bombs 2d6",
-                            Level = Bomb2.Level,
-                            ReplacedAbilities = new List<ClassAbility> { Bomb2 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Icy Bombs 3d6",
-                            Level = Bomb3.Level,
-                            ReplacedAbilities = new List<ClassAbility> { Bomb3 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Icy Bombs 4d6",
-                            Level = Bomb4.Level,
-                            ReplacedAbilities = new List<ClassAbility> { Bomb4 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Icy Bombs 5d6",
-                            Level = Bomb5.Level,
-                            ReplacedAbilities = new List<ClassAbility> { Bomb5 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Icy Bombs 6d6",
-                            Level = Bomb6.Level,
-                            ReplacedAbilities = new List<ClassAbility> { Bomb6 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Icy Bombs 7d6",
-                            Level = Bomb7.Level,
-                            ReplacedAbilities = new List<ClassAbility> { Bomb7 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Icy Bombs 8d6",
-                            Level = Bomb8.Level,
-                            ReplacedAbilities = new List<ClassAbility> { Bomb8 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Icy Bombs 9d6",
-                            Level = Bomb9.Level,
-                            ReplacedAbilities = new List<ClassAbility> { Bomb9 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Icy Bombs 10d6",
-                            Level = Bomb10.Level,
-                            ReplacedAbilities = new List<ClassAbility> { Bomb10 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Cold Sweat",
-                            Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance2, PoisonResistance4, PoisonResistance6, PoisonImmunity }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Frost Bomb",
-                            Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { Discovery2 }
-                        }
-                    }
-                };
-            }
-        }
     }
 }
