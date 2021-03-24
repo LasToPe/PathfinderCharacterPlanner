@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace PathfinderModelling.Model.Archetypes.Alchemist
@@ -11,66 +12,6 @@ namespace PathfinderModelling.Model.Archetypes.Alchemist
             Name = "Eldritch Poisoner";
             ArchetypeAbilities = new List<ArchetypeAbility>
             {
-                new ArchetypeAbility
-                {
-                    Name = "Arcanotoxin 1",
-                    Level = 1,
-                    ReplacedAbilities = new List<ClassAbility> { alchemist.Bomb1 }
-                },
-                new ArchetypeAbility
-                {
-                    Name = "Arcanotoxin 2",
-                    Level = 3,
-                    ReplacedAbilities = new List<ClassAbility> { alchemist.Bomb2 }
-                },
-                new ArchetypeAbility
-                {
-                    Name = "Arcanotoxin 3",
-                    Level = 5,
-                    ReplacedAbilities = new List<ClassAbility> { alchemist.Bomb3 }
-                },
-                new ArchetypeAbility
-                {
-                    Name = "Arcanotoxin 4",
-                    Level = 7,
-                    ReplacedAbilities = new List<ClassAbility> { alchemist.Bomb4 }
-                },
-                new ArchetypeAbility
-                {
-                    Name = "Arcanotoxin 5",
-                    Level = 9,
-                    ReplacedAbilities = new List<ClassAbility> { alchemist.Bomb5 }
-                },
-                new ArchetypeAbility
-                {
-                    Name = "Arcanotoxin 6",
-                    Level = 11,
-                    ReplacedAbilities = new List<ClassAbility> { alchemist.Bomb6 }
-                },
-                new ArchetypeAbility
-                {
-                    Name = "Arcanotoxin 7",
-                    Level = 13,
-                    ReplacedAbilities = new List<ClassAbility> { alchemist.Bomb7 }
-                },
-                new ArchetypeAbility
-                {
-                    Name = "Arcanotoxin 8",
-                    Level = 15,
-                    ReplacedAbilities = new List<ClassAbility> { alchemist.Bomb8 }
-                },
-                new ArchetypeAbility
-                {
-                    Name = "Arcanotoxin 9",
-                    Level = 17,
-                    ReplacedAbilities = new List<ClassAbility> { alchemist.Bomb9 }
-                },
-                new ArchetypeAbility
-                {
-                    Name = "Arcanotoxin 10",
-                    Level = 19,
-                    ReplacedAbilities = new List<ClassAbility> { alchemist.Bomb10 }
-                },
                 new ArchetypeAbility
                 {
                     Name = "Toxicologist ",
@@ -114,6 +55,15 @@ namespace PathfinderModelling.Model.Archetypes.Alchemist
                     Level = 2,
                 },
             };
+
+            ArchetypeAbilities.AddRange(alchemist.ClassAbilities
+                .Where(a => a.Name.Contains("Bomb"))
+                .Select(a => new ArchetypeAbility
+                {
+                    Name = a.Name.Replace("Bomb", "Arcanotoxin").Replace("d6", ""),
+                    Level = a.Level,
+                    ReplacedAbilities = new List<ClassAbility> { a }
+                }));
         }
     }
 }
