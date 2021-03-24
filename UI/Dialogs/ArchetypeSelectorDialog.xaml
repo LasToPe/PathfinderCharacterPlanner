@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:UI.Dialogs"
              mc:Ignorable="d" 
              DataContext="{Binding Source={StaticResource Locator}, Path=ArchetypeSelectorDialogViewModel}"
-             d:DesignHeight="450" d:DesignWidth="300">
+             d:DesignHeight="450" d:DesignWidth="300"
+             MaxHeight="600" MinWidth="300">
     <UserControl.Resources>
         <ResourceDictionary>
             <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatDarkBgButton}">

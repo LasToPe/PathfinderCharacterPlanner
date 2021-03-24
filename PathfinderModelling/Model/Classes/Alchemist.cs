@@ -109,6 +109,9 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(FireBomber);
             Archetypes.Add(FirstWorldInnovator);
             Archetypes.Add(GloomChymist);
+            Archetypes.Add(Grenadier);
+            Archetypes.Add(GrenadierMC);
+            Archetypes.Add(GunChemist);
         }
 
         private void LimitedExtracts(bool activate)
@@ -1838,6 +1841,218 @@ namespace PathfinderModelling.Model.Classes
                             Name = "Umbral Gloom",
                             Level = 2,
                             ReplacedAbilities = new List<ClassAbility>(ClassAbilities.Where(a => a.Name.Contains("Poison")))
+                        }
+                    }
+                };
+            }
+        }
+        Archetype Grenadier
+        {
+            get
+            {
+                return new Archetype
+                {
+                    Name = "Grenadier",
+                    ArchetypeAbilities = new List<ArchetypeAbility>
+                    {
+                        new ArchetypeAbility
+                        {
+                            Name = "Martial Weapon Proficiency",
+                            Level = 1,
+                            ReplacedAbilities = new List<ClassAbility> { _brewPotion }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Alchemical Weapon",
+                            Level = 2,
+                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2, _poisonResistance4, _poisonResistance6 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Precise Bombs",
+                            Level = 2,
+                            ReplacedAbilities = new List<ClassAbility> { _poisonUse }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Directed Blast",
+                            Level = 6,
+                            ReplacedAbilities = new List<ClassAbility> { _swiftPoisoning }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Staggering Blast",
+                            Level = 10,
+                            ReplacedAbilities = new List<ClassAbility> { _poisonImmunity }
+                        }
+                    }
+                };
+            }
+        }
+        Archetype GrenadierMC
+        {
+            get
+            {
+                return new Archetype
+                {
+                    Name = "Grenadier [MC]",
+                    ArchetypeAbilities = new List<ArchetypeAbility>
+                    {
+                        new ArchetypeAbility
+                        {
+                            Name = "Martial Weapon Proficiency",
+                            Level = 1,
+                            ReplacedAbilities = new List<ClassAbility> { _brewPotion }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Alchemical Weapon",
+                            Level = 2,
+                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2, _poisonResistance4, _poisonResistance6 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Precise Bombs",
+                            Level = 2,
+                            ReplacedAbilities = new List<ClassAbility> { _poisonUse }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Directed Blast",
+                            Level = 6,
+                            ReplacedAbilities = new List<ClassAbility> { _swiftPoisoning }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Staggering Blast",
+                            Level = 10,
+                            ReplacedAbilities = new List<ClassAbility> { _poisonImmunity }
+                        }
+                    }
+                };
+            }
+        }
+        Archetype GunChemist
+        {
+            get
+            {
+                return new Archetype
+                {
+                    Name = "Gun Chemist",
+                    ArchetypeAbilities = new List<ArchetypeAbility>
+                    {
+                        new ArchetypeAbility
+                        {
+                            Name = "Alchemical Ordnance 1d6",
+                            Level = _bomb1.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb1 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Alchemical Ordnance 2d6",
+                            Level = _bomb2.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Alchemical Ordnance 3d6",
+                            Level = _bomb3.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Alchemical Ordnance 4d6",
+                            Level = _bomb4.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Alchemical Ordnance 5d6",
+                            Level = _bomb5.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Alchemical Ordnance 6d6",
+                            Level = _bomb6.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Alchemical Ordnance 7d6",
+                            Level = _bomb7.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Alchemical Ordnance 8d6",
+                            Level = _bomb8.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Alchemical Ordnance 9d6",
+                            Level = _bomb9.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Alchemical Ordnance 10d6",
+                            Level = _bomb10.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Gunsmith",
+                            Level = 1,
+                            ReplacedAbilities = new List<ClassAbility> { _brewPotion, _throwAnything }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Gun Chemist Discoveries",
+                            Level = 2
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Cartridge Savant +1",
+                            Level = 2,
+                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2, _poisonResistance4, _poisonResistance6, _poisonImmunity }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Cartridge Savant +2",
+                            Level = 5,
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Cartridge Savant +3",
+                            Level = 8,
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Cartridge Savant +4",
+                            Level = 11,
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Cartridge Savant +5",
+                            Level = 14,
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Cartridge Savant +6",
+                            Level = 17,
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Cartridge Savant +7",
+                            Level = 20,
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Repeat Fire",
+                            Level = 6,
+                            ReplacedAbilities = new List<ClassAbility> { _swiftPoisoning }
                         }
                     }
                 };
