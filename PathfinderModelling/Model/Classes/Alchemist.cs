@@ -149,75 +149,75 @@ namespace PathfinderModelling.Model.Classes
         }
 
         #region ClassAbilities
-        ClassAbility _alchemy = new ClassAbility { Name = "Alchemy", Level = 1 };
-        ClassAbility _bomb1 = new ClassAbility { Name = "Bomb 1d6", Level = 1 };
-        ClassAbility _bomb2 = new ClassAbility { Name = "Bomb 2d6", Level = 3 };
-        ClassAbility _bomb3 = new ClassAbility { Name = "Bomb 3d6", Level = 5 };
-        ClassAbility _bomb4 = new ClassAbility { Name = "Bomb 4d6", Level = 7 };
-        ClassAbility _bomb5 = new ClassAbility { Name = "Bomb 5d6", Level = 9 };
-        ClassAbility _bomb6 = new ClassAbility { Name = "Bomb 6d6", Level = 11 };
-        ClassAbility _bomb7 = new ClassAbility { Name = "Bomb 7d6", Level = 13 };
-        ClassAbility _bomb8 = new ClassAbility { Name = "Bomb 8d6", Level = 15 };
-        ClassAbility _bomb9 = new ClassAbility { Name = "Bomb 9d6", Level = 17 };
-        ClassAbility _bomb10 = new ClassAbility { Name = "Bomb 10d6", Level = 19 };
-        ClassAbility _brewPotion = new ClassAbility { Name = "Brew Potion", Level = 1 };
-        ClassAbility _extracts = new ClassAbility { Name = "Extracts", Level = 1 };
-        ClassAbility _mutagen = new ClassAbility { Name = "Mutagen", Level = 1 };
-        ClassAbility _throwAnything = new ClassAbility { Name = "Throw Anything", Level = 1 };
-        ClassAbility _discovery2 = new ClassAbility { Name = "Discovery", Level = 2 };
-        ClassAbility _discovery4 = new ClassAbility { Name = "Discovery", Level = 4 };
-        ClassAbility _discovery6 = new ClassAbility { Name = "Discovery", Level = 6 };
-        ClassAbility _discovery8 = new ClassAbility { Name = "Discovery", Level = 8 };
-        ClassAbility _discovery10 = new ClassAbility { Name = "Discovery", Level = 10 };
-        ClassAbility _discovery12 = new ClassAbility { Name = "Discovery", Level = 12 };
-        ClassAbility _discovery14 = new ClassAbility { Name = "Discovery", Level = 14 };
-        ClassAbility _discovery16 = new ClassAbility { Name = "Discovery", Level = 16 };
-        ClassAbility _discovery18 = new ClassAbility { Name = "Discovery", Level = 18 };
-        ClassAbility _poisonResistance2 = new ClassAbility { Name = "Poison Resistance +2", Level = 2 };
-        ClassAbility _poisonResistance4 = new ClassAbility { Name = "Poison Resistance +4", Level = 5 };
-        ClassAbility _poisonResistance6 = new ClassAbility { Name = "Poison Resistance +6", Level = 8 };
-        ClassAbility _poisonImmunity = new ClassAbility { Name = "Poison Immunity", Level = 10 };
-        ClassAbility _poisonUse = new ClassAbility { Name = "Poison Use", Level = 2 };
-        ClassAbility _swiftAlchemy = new ClassAbility { Name = "Swift Alchemy", Level = 3 };
-        ClassAbility _swiftPoisoning = new ClassAbility { Name = "Swift Poisoning", Level = 6 };
-        ClassAbility _persistentMutagen = new ClassAbility { Name = "Persistent Mutagen", Level = 14 };
-        ClassAbility _instantAlchemy = new ClassAbility { Name = "Instant Alchemy", Level = 18 };
-        ClassAbility _grandDiscovery = new ClassAbility { Name = "Grand Discovery", Level = 20 };
+        readonly ClassAbility _alchemy = new ClassAbility { Name = "Alchemy", Level = 1 };
+        readonly ClassAbility _bomb1 = new ClassAbility { Name = "Bomb 1d6", Level = 1 };
+        readonly ClassAbility _bomb2 = new ClassAbility { Name = "Bomb 2d6", Level = 3 };
+        readonly ClassAbility _bomb3 = new ClassAbility { Name = "Bomb 3d6", Level = 5 };
+        readonly ClassAbility _bomb4 = new ClassAbility { Name = "Bomb 4d6", Level = 7 };
+        readonly ClassAbility _bomb5 = new ClassAbility { Name = "Bomb 5d6", Level = 9 };
+        readonly ClassAbility _bomb6 = new ClassAbility { Name = "Bomb 6d6", Level = 11 };
+        readonly ClassAbility _bomb7 = new ClassAbility { Name = "Bomb 7d6", Level = 13 };
+        readonly ClassAbility _bomb8 = new ClassAbility { Name = "Bomb 8d6", Level = 15 };
+        readonly ClassAbility _bomb9 = new ClassAbility { Name = "Bomb 9d6", Level = 17 };
+        readonly ClassAbility _bomb10 = new ClassAbility { Name = "Bomb 10d6", Level = 19 };
+        readonly ClassAbility _brewPotion = new ClassAbility { Name = "Brew Potion", Level = 1 };
+        readonly ClassAbility _extracts = new ClassAbility { Name = "Extracts", Level = 1 };
+        readonly ClassAbility _mutagen = new ClassAbility { Name = "Mutagen", Level = 1 };
+        readonly ClassAbility _throwAnything = new ClassAbility { Name = "Throw Anything", Level = 1 };
+        readonly ClassAbility _discovery2 = new ClassAbility { Name = "Discovery", Level = 2 };
+        readonly ClassAbility _discovery4 = new ClassAbility { Name = "Discovery", Level = 4 };
+        readonly ClassAbility _discovery6 = new ClassAbility { Name = "Discovery", Level = 6 };
+        readonly ClassAbility _discovery8 = new ClassAbility { Name = "Discovery", Level = 8 };
+        readonly ClassAbility _discovery10 = new ClassAbility { Name = "Discovery", Level = 10 };
+        readonly ClassAbility _discovery12 = new ClassAbility { Name = "Discovery", Level = 12 };
+        readonly ClassAbility _discovery14 = new ClassAbility { Name = "Discovery", Level = 14 };
+        readonly ClassAbility _discovery16 = new ClassAbility { Name = "Discovery", Level = 16 };
+        readonly ClassAbility _discovery18 = new ClassAbility { Name = "Discovery", Level = 18 };
+        readonly ClassAbility _poisonResistance2 = new ClassAbility { Name = "Poison Resistance +2", Level = 2 };
+        readonly ClassAbility _poisonResistance4 = new ClassAbility { Name = "Poison Resistance +4", Level = 5 };
+        readonly ClassAbility _poisonResistance6 = new ClassAbility { Name = "Poison Resistance +6", Level = 8 };
+        readonly ClassAbility _poisonImmunity = new ClassAbility { Name = "Poison Immunity", Level = 10 };
+        readonly ClassAbility _poisonUse = new ClassAbility { Name = "Poison Use", Level = 2 };
+        readonly ClassAbility _swiftAlchemy = new ClassAbility { Name = "Swift Alchemy", Level = 3 };
+        readonly ClassAbility _swiftPoisoning = new ClassAbility { Name = "Swift Poisoning", Level = 6 };
+        readonly ClassAbility _persistentMutagen = new ClassAbility { Name = "Persistent Mutagen", Level = 14 };
+        readonly ClassAbility _instantAlchemy = new ClassAbility { Name = "Instant Alchemy", Level = 18 };
+        readonly ClassAbility _grandDiscovery = new ClassAbility { Name = "Grand Discovery", Level = 20 };
 
-        public ClassAbility Alchemy { get => _alchemy; set => _alchemy = value; }
-        public ClassAbility Bomb1 { get => _bomb1; set => _bomb1 = value; }
-        public ClassAbility Bomb2 { get => _bomb2; set => _bomb2 = value; }
-        public ClassAbility Bomb3 { get => _bomb3; set => _bomb3 = value; }
-        public ClassAbility Bomb4 { get => _bomb4; set => _bomb4 = value; }
-        public ClassAbility Bomb5 { get => _bomb5; set => _bomb5 = value; }
-        public ClassAbility Bomb6 { get => _bomb6; set => _bomb6 = value; }
-        public ClassAbility Bomb7 { get => _bomb7; set => _bomb7 = value; }
-        public ClassAbility Bomb8 { get => _bomb8; set => _bomb8 = value; }
-        public ClassAbility Bomb9 { get => _bomb9; set => _bomb9 = value; }
-        public ClassAbility Bomb10 { get => _bomb10; set => _bomb10 = value; }
-        public ClassAbility BrewPotion { get => _brewPotion; set => _brewPotion = value; }
-        public ClassAbility Extracts { get => _extracts; set => _extracts = value; }
-        public ClassAbility Mutagen { get => _mutagen; set => _mutagen = value; }
-        public ClassAbility ThrowAnything { get => _throwAnything; set => _throwAnything = value; }
-        public ClassAbility Discovery2 { get => _discovery2; set => _discovery2 = value; }
-        public ClassAbility Discovery4 { get => _discovery4; set => _discovery4 = value; }
-        public ClassAbility Discovery6 { get => _discovery6; set => _discovery6 = value; }
-        public ClassAbility Discovery8 { get => _discovery8; set => _discovery8 = value; }
-        public ClassAbility Discovery10 { get => _discovery10; set => _discovery10 = value; }
-        public ClassAbility Discovery12 { get => _discovery12; set => _discovery12 = value; }
-        public ClassAbility Discovery14 { get => _discovery14; set => _discovery14 = value; }
-        public ClassAbility Discovery16 { get => _discovery16; set => _discovery16 = value; }
-        public ClassAbility Discovery18 { get => _discovery18; set => _discovery18 = value; }
-        public ClassAbility PoisonResistance2 { get => _poisonResistance2; set => _poisonResistance2 = value; }
-        public ClassAbility PoisonResistance4 { get => _poisonResistance4; set => _poisonResistance4 = value; }
-        public ClassAbility PoisonResistance6 { get => _poisonResistance6; set => _poisonResistance6 = value; }
-        public ClassAbility PoisonImmunity { get => _poisonImmunity; set => _poisonImmunity = value; }
-        public ClassAbility PoisonUse { get => _poisonUse; set => _poisonUse = value; }
-        public ClassAbility SwiftAlchemy { get => _swiftAlchemy; set => _swiftAlchemy = value; }
-        public ClassAbility SwiftPoisoning { get => _swiftPoisoning; set => _swiftPoisoning = value; }
-        public ClassAbility PersistentMutagen { get => _persistentMutagen; set => _persistentMutagen = value; }
-        public ClassAbility InstantAlchemy { get => _instantAlchemy; set => _instantAlchemy = value; }
-        public ClassAbility GrandDiscovery { get => _grandDiscovery; set => _grandDiscovery = value; }
+        public ClassAbility Alchemy => _alchemy;
+        public ClassAbility Bomb1 => _bomb1;
+        public ClassAbility Bomb2 => _bomb2;
+        public ClassAbility Bomb3 => _bomb3;
+        public ClassAbility Bomb4 => _bomb4;
+        public ClassAbility Bomb5 => _bomb5;
+        public ClassAbility Bomb6 => _bomb6;
+        public ClassAbility Bomb7 => _bomb7;
+        public ClassAbility Bomb8 => _bomb8;
+        public ClassAbility Bomb9 => _bomb9;
+        public ClassAbility Bomb10 => _bomb10;
+        public ClassAbility BrewPotion => _brewPotion;
+        public ClassAbility Extracts => _extracts;
+        public ClassAbility Mutagen => _mutagen;
+        public ClassAbility ThrowAnything => _throwAnything;
+        public ClassAbility Discovery2 => _discovery2;
+        public ClassAbility Discovery4 => _discovery4;
+        public ClassAbility Discovery6 => _discovery6;
+        public ClassAbility Discovery8 => _discovery8;
+        public ClassAbility Discovery10 => _discovery10;
+        public ClassAbility Discovery12 => _discovery12;
+        public ClassAbility Discovery14 => _discovery14;
+        public ClassAbility Discovery16 => _discovery16;
+        public ClassAbility Discovery18 => _discovery18;
+        public ClassAbility PoisonResistance2 => _poisonResistance2;
+        public ClassAbility PoisonResistance4 => _poisonResistance4;
+        public ClassAbility PoisonResistance6 => _poisonResistance6;
+        public ClassAbility PoisonImmunity => _poisonImmunity;
+        public ClassAbility PoisonUse => _poisonUse;
+        public ClassAbility SwiftAlchemy => _swiftAlchemy;
+        public ClassAbility SwiftPoisoning => _swiftPoisoning;
+        public ClassAbility PersistentMutagen => _persistentMutagen;
+        public ClassAbility InstantAlchemy => _instantAlchemy;
+        public ClassAbility GrandDiscovery => _grandDiscovery;
         #endregion
     }
 }
