@@ -1,8 +1,5 @@
 ﻿using PathfinderModelling.Model.Archetypes.Alchemist;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace PathfinderModelling.Model.Classes
 {
@@ -117,6 +114,9 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new Homunculist(this));
             Archetypes.Add(new Horticulturist(this));
             Archetypes.Add(new IceChemist(this));
+            Archetypes.Add(new InspiredChemist(this));
+            Archetypes.Add(new InternalAlchemist(this));
+            Archetypes.Add(new Interrogator(this));
         }
 
         public void LimitedExtracts(bool activate)
