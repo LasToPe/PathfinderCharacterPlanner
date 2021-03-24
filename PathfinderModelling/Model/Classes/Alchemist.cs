@@ -112,6 +112,9 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(Grenadier);
             Archetypes.Add(GrenadierMC);
             Archetypes.Add(GunChemist);
+            Archetypes.Add(Herbalist);
+            Archetypes.Add(Homunculist);
+            Archetypes.Add(Horticulturist);
         }
 
         private void LimitedExtracts(bool activate)
@@ -2053,6 +2056,238 @@ namespace PathfinderModelling.Model.Classes
                             Name = "Repeat Fire",
                             Level = 6,
                             ReplacedAbilities = new List<ClassAbility> { _swiftPoisoning }
+                        }
+                    }
+                };
+            }
+        }
+        Archetype Herbalist
+        {
+            get
+            {
+                return new Archetype
+                {
+                    Name = "Herbalist",
+                    ArchetypeAbilities = new List<ArchetypeAbility>
+                    {
+                        new ArchetypeAbility
+                        {
+                            Name = "Natural Magic",
+                            Level = 1,
+                            ReplacedAbilities = new List<ClassAbility> { _throwAnything }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Seedpods 1d6",
+                            Level = _bomb1.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb1, _poisonUse, _poisonResistance2, _poisonResistance4, _poisonResistance6, _poisonImmunity }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Seedpods 2d6",
+                            Level = _bomb2.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Seedpods 3d6",
+                            Level = _bomb3.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Seedpods 4d6",
+                            Level = _bomb4.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Seedpods 5d6",
+                            Level = _bomb5.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Seedpods 6d6",
+                            Level = _bomb6.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Seedpods 7d6",
+                            Level = _bomb7.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Seedpods 8d6",
+                            Level = _bomb8.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Seedpods 9d6",
+                            Level = _bomb9.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Seedpods 10d6",
+                            Level = _bomb10.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                        },
+                    }
+                };
+            }
+        }
+        Archetype Homunculist
+        {
+            get
+            {
+                return new Archetype
+                {
+                    Name = "Homunculist",
+                    ArchetypeAbilities = new List<ArchetypeAbility>
+                    {
+                        new ArchetypeAbility
+                        {
+                            Name = "Diminished Poisoning",
+                            Level = 1,
+                            ReplacedAbilities = new List<ClassAbility>(ClassAbilities.Where(a => a.Name.Contains("Poison")))
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Homunculus Familiar",
+                            Level = 1,
+                            ReplacedAbilities = new List<ClassAbility> { _mutagen }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Experimentation 1",
+                            Level = 4,
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Experimentation 2",
+                            Level = 8,
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Experimentation 3",
+                            Level = 12,
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Experimentation 4",
+                            Level = 16,
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Experimentation 5",
+                            Level = 20,
+                        },
+                    }
+                };
+            }
+        }
+        Archetype Horticulturist
+        {
+            get
+            {
+                return new Archetype
+                {
+                    Name = "Horticulturist",
+                    ArchetypeAbilities = new List<ArchetypeAbility>
+                    {
+                        new ArchetypeAbility
+                        {
+                            Name = "Seed Extract",
+                            Level = 1,
+                            ReplacedAbilities = new List<ClassAbility> { _mutagen, _discovery2 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Herbal Bombs 1d6",
+                            Level = _bomb1.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb1 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Herbal Bombs 2d6",
+                            Level = _bomb2.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Herbal Bombs 3d6",
+                            Level = _bomb3.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Herbal Bombs 4d6",
+                            Level = _bomb4.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Herbal Bombs 5d6",
+                            Level = _bomb5.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Herbal Bombs 6d6",
+                            Level = _bomb6.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Herbal Bombs 7d6",
+                            Level = _bomb7.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Herbal Bombs 8d6",
+                            Level = _bomb8.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Herbal Bombs 9d6",
+                            Level = _bomb9.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Herbal Bombs 10d6",
+                            Level = _bomb10.Level,
+                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Plant Voice +2",
+                            Level = 2,
+                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2, _poisonResistance4, _poisonResistance6, _poisonUse }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Plant Voice (Speak With Plants)",
+                            Level = 10,
+                            ReplacedAbilities = new List<ClassAbility> { _poisonImmunity }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Plant Familiar",
+                            Level = 4,
+                            ReplacedAbilities = new List<ClassAbility> { _discovery4 }
+                        },
+                        new ArchetypeAbility
+                        {
+                            Name = "Fury of Nature",
+                            Level = 14,
+                            ReplacedAbilities = new List<ClassAbility> { _persistentMutagen }
                         }
                     }
                 };
