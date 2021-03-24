@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PathfinderModelling.Model.Archetypes.Alchemist;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,49 +45,49 @@ namespace PathfinderModelling.Model.Classes
             };
             ClassAbilities = new List<ClassAbility>
             {
-                _alchemy,
-                _bomb1,
-                _bomb2,
-                _bomb3,
-                _bomb4,
-                _bomb5,
-                _bomb6,
-                _bomb7,
-                _bomb8,
-                _bomb9,
-                _bomb10,
-                _brewPotion,
-                _extracts,
-                _mutagen,
-                _throwAnything,
-                _discovery2,
-                _discovery4,
-                _discovery6,
-                _discovery8,
-                _discovery10,
-                _discovery12,
-                _discovery14,
-                _discovery16,
-                _discovery18,
-                _poisonResistance2,
-                _poisonResistance4,
-                _poisonResistance6,
-                _poisonImmunity,
-                _poisonUse,
-                _swiftAlchemy,
-                _swiftPoisoning,
-                _persistentMutagen,
-                _instantAlchemy,
-                _grandDiscovery,
+                Alchemy,
+                Bomb1,
+                Bomb2,
+                Bomb3,
+                Bomb4,
+                Bomb5,
+                Bomb6,
+                Bomb7,
+                Bomb8,
+                Bomb9,
+                Bomb10,
+                BrewPotion,
+                Extracts,
+                Mutagen,
+                ThrowAnything,
+                Discovery2,
+                Discovery4,
+                Discovery6,
+                Discovery8,
+                Discovery10,
+                Discovery12,
+                Discovery14,
+                Discovery16,
+                Discovery18,
+                PoisonResistance2,
+                PoisonResistance4,
+                PoisonResistance6,
+                PoisonImmunity,
+                PoisonUse,
+                SwiftAlchemy,
+                SwiftPoisoning,
+                PersistentMutagen,
+                InstantAlchemy,
+                GrandDiscovery,
             };
 
-            Archetypes.Add(Aerochemist);
-            Archetypes.Add(AlchemicalSapper);
-            Archetypes.Add(AlchemicalTrapper);
-            Archetypes.Add(Aquachymist);
-            Archetypes.Add(Beastmorph);
-            Archetypes.Add(BlazingTorchbearer);
-            Archetypes.Add(Blightseeker);
+            Archetypes.Add(new Aerochemist(this));
+            Archetypes.Add(new AlchemicalSapper(this));
+            Archetypes.Add(new AlchemicalTrapper(this));
+            Archetypes.Add(new Aquachymist(this));
+            Archetypes.Add(new Beastmorph(this));
+            Archetypes.Add(new BlazingTorchbearer(this));
+            Archetypes.Add(new Blightseeker(this));
             Archetypes.Add(BloodAlchemist);
             Archetypes.Add(BogbornAlchemist);
             Archetypes.Add(BrambleBrewer);
@@ -118,7 +119,7 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(IceChemist);
         }
 
-        private void LimitedExtracts(bool activate)
+        public void LimitedExtracts(bool activate)
         {
             if (activate)
             {
@@ -182,435 +183,42 @@ namespace PathfinderModelling.Model.Classes
         ClassAbility _persistentMutagen = new ClassAbility { Name = "Persistent Mutagen", Level = 14 };
         ClassAbility _instantAlchemy = new ClassAbility { Name = "Instant Alchemy", Level = 18 };
         ClassAbility _grandDiscovery = new ClassAbility { Name = "Grand Discovery", Level = 20 };
-        #endregion
 
-        Archetype Aerochemist
-        {
-            get
-            {
-                return new Archetype
-                {
-                    Name = "Aerochemist",
-                    ArchetypeAbilities = new List<ArchetypeAbility>
-                    {
-                        new ArchetypeAbility
-                        {
-                            Name = "Aeromantic Concoction",
-                            Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _mutagen, _swiftPoisoning, _persistentMutagen }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Bombs Away",
-                            Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonUse, _swiftAlchemy }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Aerodynamic Prowess",
-                            Level = 2,
-                            ReplacedAbilities = new List<ClassAbility>(ClassAbilities.Where(a => a.Name.Contains("Poison Resistance")))
-                        }
-                    }
-                };
-            }
-        }
-        Archetype AlchemicalSapper
-        {
-            get
-            {
-                return new Archetype
-                {
-                    Name = "Alchemical Sapper",
-                    ArchetypeAbilities = new List<ArchetypeAbility>
-                    {
-                        new ArchetypeAbility
-                        {
-                            Name = "Diminished Alchemy",
-                            Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _alchemy }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bombs 1d6",
-                            Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb1 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bombs 2d6",
-                            Level = 3,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bombs 3d6",
-                            Level = 5,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bombs 4d6",
-                            Level = 7,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bombs 5d6",
-                            Level = 9,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bombs 6d6",
-                            Level = 11,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bombs 7d6",
-                            Level = 13,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bombs 8d6",
-                            Level = 15,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bombs 9d6",
-                            Level = 17,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bombs 10d6",
-                            Level = 19,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bomb 1/day",
-                            Level = 1,
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bomb 2/day",
-                            Level = 5,
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bomb 3/day",
-                            Level = 9,
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bomb 4/day",
-                            Level = 13,
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Demolition Bomb 5/day",
-                            Level = 17,
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Delayed Bomb",
-                            Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _mutagen }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Master Engineer",
-                            Level = 2,
-                            ReplacedAbilities = new List<ClassAbility>(ClassAbilities.Where(a => a.Name.Contains("Poison Resistance")))
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Camouflage Bomb",
-                            Level = 3,
-                            ReplacedAbilities = new List<ClassAbility> { _swiftAlchemy }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Trip Mine",
-                            Level = 6,
-                            ReplacedAbilities = new List<ClassAbility> { _discovery6 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Selective Detonation",
-                            Level = 10,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonImmunity }
-                        }
-                    }
-                };
-            }
-        }
-        Archetype AlchemicalTrapper
-        {
-            get
-            {
-                return new Archetype
-                {
-                    Name = "Alchemical Trapper",
-                    ArchetypeAbilities = new List<ArchetypeAbility>
-                    {
-                        new ArchetypeAbility
-                        {
-                            Name = "Bomb Trap",
-                            Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _discovery2 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Trapfinding",
-                            Level = 4,
-                            ReplacedAbilities = new List<ClassAbility> { _discovery4 }
-                        }
-                    }
-                };
-            }
-        }
-        Archetype Aquachymist
-        {
-            get
-            {
-                return new Archetype
-                {
-                    Name = "Aquachymist",
-                    ArchetypeAbilities = new List<ArchetypeAbility>
-                    {
-                        new ArchetypeAbility
-                        {
-                            Name = "Sureseal Alchemy",
-                            Level = 1,
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Underwater Bombs 1d6",
-                            Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb1 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Underwater Bombs 2d6",
-                            Level = 3,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Underwater Bombs 3d6",
-                            Level = 5,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Underwater Bombs 4d6",
-                            Level = 7,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Underwater Bombs 5d6",
-                            Level = 9,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Underwater Bombs 6d6",
-                            Level = 11,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Underwater Bombs 7d6",
-                            Level = 13,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Underwater Bombs 8d6",
-                            Level = 15,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Underwater Bombs 9d6",
-                            Level = 17,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Underwater Bombs 10d6",
-                            Level = 19,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Amphibious Mutagen",
-                            Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _discovery2 }
-                        },
-                    }
-                };
-            }
-        }
-        Archetype Beastmorph
-        {
-            get
-            {
-                return new Archetype
-                {
-                    Name = "Beastmorph",
-                    ArchetypeAbilities = new List<ArchetypeAbility>
-                    {
-                        new ArchetypeAbility
-                        {
-                            Name = "Beastform Mutagen",
-                            Level = 3,
-                            ReplacedAbilities = new List<ClassAbility> { _swiftAlchemy },
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Improved Beastform Mutagen",
-                            Level = 6,
-                            ReplacedAbilities = new List<ClassAbility> { _swiftPoisoning },
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Greater Beastform Mutagen",
-                            Level = 10,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2, _poisonResistance4, _poisonResistance6, _poisonImmunity },
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Grand Beastform Mutagen",
-                            Level = 14,
-                            ReplacedAbilities = new List<ClassAbility> { _persistentMutagen },
-                        },
-                    }
-                };
-            }
-        }
-        Archetype BlazingTorchbearer
-        {
-            get
-            {
-                return new Archetype
-                {
-                    Name = "Blazing Torchbearer",
-                    ArchetypeAbilities = new List<ArchetypeAbility>
-                    {
-                        new ArchetypeAbility
-                        {
-                            Name = "Everburning Flame",
-                            Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _brewPotion }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Intense Light",
-                            Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonUse },
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Explosive Torch",
-                            Level = 4,
-                            ReplacedAbilities = new List<ClassAbility> { _discovery4 },
-                        },
-                    }
-                };
-            }
-        }
-        Archetype Blightseeker
-        {
-            get
-            {
-                return new Archetype
-                {
-                    Name = "Blightseeker",
-                    ArchetypeAbilities = new List<ArchetypeAbility>
-                    {
-                        new ArchetypeAbility
-                        {
-                            Name = "Spore Bomb 1d4",
-                            Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb1 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Spore Bomb 2d4",
-                            Level = 3,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Spore Bomb 3d4",
-                            Level = 5,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Spore Bomb 4d4",
-                            Level = 7,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Spore Bomb 5d4",
-                            Level = 9,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Spore Bomb 6d4",
-                            Level = 11,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Spore Bomb 7d4",
-                            Level = 13,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Spore Bomb 8d4",
-                            Level = 15,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Spore Bomb 9d4",
-                            Level = 17,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Spore Bomb 10d4",
-                            Level = 19,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Blights",
-                            Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _discovery6, _discovery12, _discovery18 }
-                        },
-                        new ArchetypeAbility
-                        {
-                            Name = "Blight Engineering",
-                            Level = 14,
-                            ReplacedAbilities = new List<ClassAbility> { _persistentMutagen }
-                        },
-                    }
-                };
-            }
-        }
+        public ClassAbility Alchemy { get => _alchemy; set => _alchemy = value; }
+        public ClassAbility Bomb1 { get => _bomb1; set => _bomb1 = value; }
+        public ClassAbility Bomb2 { get => _bomb2; set => _bomb2 = value; }
+        public ClassAbility Bomb3 { get => _bomb3; set => _bomb3 = value; }
+        public ClassAbility Bomb4 { get => _bomb4; set => _bomb4 = value; }
+        public ClassAbility Bomb5 { get => _bomb5; set => _bomb5 = value; }
+        public ClassAbility Bomb6 { get => _bomb6; set => _bomb6 = value; }
+        public ClassAbility Bomb7 { get => _bomb7; set => _bomb7 = value; }
+        public ClassAbility Bomb8 { get => _bomb8; set => _bomb8 = value; }
+        public ClassAbility Bomb9 { get => _bomb9; set => _bomb9 = value; }
+        public ClassAbility Bomb10 { get => _bomb10; set => _bomb10 = value; }
+        public ClassAbility BrewPotion { get => _brewPotion; set => _brewPotion = value; }
+        public ClassAbility Extracts { get => _extracts; set => _extracts = value; }
+        public ClassAbility Mutagen { get => _mutagen; set => _mutagen = value; }
+        public ClassAbility ThrowAnything { get => _throwAnything; set => _throwAnything = value; }
+        public ClassAbility Discovery2 { get => _discovery2; set => _discovery2 = value; }
+        public ClassAbility Discovery4 { get => _discovery4; set => _discovery4 = value; }
+        public ClassAbility Discovery6 { get => _discovery6; set => _discovery6 = value; }
+        public ClassAbility Discovery8 { get => _discovery8; set => _discovery8 = value; }
+        public ClassAbility Discovery10 { get => _discovery10; set => _discovery10 = value; }
+        public ClassAbility Discovery12 { get => _discovery12; set => _discovery12 = value; }
+        public ClassAbility Discovery14 { get => _discovery14; set => _discovery14 = value; }
+        public ClassAbility Discovery16 { get => _discovery16; set => _discovery16 = value; }
+        public ClassAbility Discovery18 { get => _discovery18; set => _discovery18 = value; }
+        public ClassAbility PoisonResistance2 { get => _poisonResistance2; set => _poisonResistance2 = value; }
+        public ClassAbility PoisonResistance4 { get => _poisonResistance4; set => _poisonResistance4 = value; }
+        public ClassAbility PoisonResistance6 { get => _poisonResistance6; set => _poisonResistance6 = value; }
+        public ClassAbility PoisonImmunity { get => _poisonImmunity; set => _poisonImmunity = value; }
+        public ClassAbility PoisonUse { get => _poisonUse; set => _poisonUse = value; }
+        public ClassAbility SwiftAlchemy { get => _swiftAlchemy; set => _swiftAlchemy = value; }
+        public ClassAbility SwiftPoisoning { get => _swiftPoisoning; set => _swiftPoisoning = value; }
+        public ClassAbility PersistentMutagen { get => _persistentMutagen; set => _persistentMutagen = value; }
+        public ClassAbility InstantAlchemy { get => _instantAlchemy; set => _instantAlchemy = value; }
+        public ClassAbility GrandDiscovery { get => _grandDiscovery; set => _grandDiscovery = value; }
+        #endregion
         Archetype BloodAlchemist
         {
             get
@@ -624,7 +232,7 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Lifeblood",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _mutagen }
+                            ReplacedAbilities = new List<ClassAbility> { Mutagen }
                         },
                         new ArchetypeAbility
                         {
@@ -654,7 +262,7 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Amphibious Mutagen",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _throwAnything }
+                            ReplacedAbilities = new List<ClassAbility> { ThrowAnything }
                         }
                     }
                 };
@@ -673,19 +281,19 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Briar Bombs",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _discovery2 }
+                            ReplacedAbilities = new List<ClassAbility> { Discovery2 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Dendrite Mutagen",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _mutagen }
+                            ReplacedAbilities = new List<ClassAbility> { Mutagen }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Grand Discovery",
                             Level = 20,
-                            ReplacedAbilities = new List<ClassAbility> { _grandDiscovery }
+                            ReplacedAbilities = new List<ClassAbility> { GrandDiscovery }
                         },
                     }
                 };
@@ -704,19 +312,19 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Infused Curative",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonUse }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonUse }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Anaesthetic",
                             Level = 5,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance4 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Power Over Death",
                             Level = 10,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonImmunity }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonImmunity }
                         },
                     }
                 };
@@ -735,61 +343,61 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Bomb 1d4",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb1 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb1 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Bomb 2d4",
                             Level = 3,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb2 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Bomb 3d4",
                             Level = 5,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb3 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Bomb 4d4",
                             Level = 7,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Bomb 5d4",
                             Level = 9,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb5 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Bomb 6d4",
                             Level = 11,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Bomb 7d4",
                             Level = 13,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb7 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Bomb 8d4",
                             Level = 15,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb8 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Bomb 9d4",
                             Level = 17,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb9 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Bomb 10d4",
                             Level = 19,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb10 }
                         },
                         new ArchetypeAbility
                         {
@@ -800,7 +408,7 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Rebirth",
                             Level = 8,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance6, _poisonImmunity }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance6, PoisonImmunity }
                         },
                         new ArchetypeAbility
                         {
@@ -829,13 +437,13 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Mutagenic Mixology",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _discovery2, _discovery4 }
+                            ReplacedAbilities = new List<ClassAbility> { Discovery2, Discovery4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Extracting Mixology",
                             Level = 6,
-                            ReplacedAbilities = new List<ClassAbility> { _discovery6 }
+                            ReplacedAbilities = new List<ClassAbility> { Discovery6 }
                         }
                     }
                 };
@@ -854,13 +462,13 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Craft Mount",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _brewPotion, _mutagen, _discovery4 }
+                            ReplacedAbilities = new List<ClassAbility> { BrewPotion, Mutagen, Discovery4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Diminished Extracts",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _extracts },
+                            ReplacedAbilities = new List<ClassAbility> { Extracts },
                             Add = () => LimitedExtracts(true),
                             Remove = () => LimitedExtracts(false)
                         },
@@ -891,7 +499,7 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Mantis Mutagen",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _mutagen }
+                            ReplacedAbilities = new List<ClassAbility> { Mutagen }
                         }
                     }
                 };
@@ -910,13 +518,13 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Blood Famliliar",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _mutagen }
+                            ReplacedAbilities = new List<ClassAbility> { Mutagen }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Blood Treatment",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _brewPotion }
+                            ReplacedAbilities = new List<ClassAbility> { BrewPotion }
                         },
                         new ArchetypeAbility
                         {
@@ -940,73 +548,73 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Alkahest Bombs 1d8",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb1 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb1 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alkahest Bombs 2d8",
                             Level = 3,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb2 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alkahest Bombs 3d8",
                             Level = 5,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb3 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alkahest Bombs 4d8",
                             Level = 7,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alkahest Bombs 5d8",
                             Level = 9,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb5 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alkahest Bombs 6d8",
                             Level = 11,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alkahest Bombs 7d8",
                             Level = 13,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb7 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alkahest Bombs 8d8",
                             Level = 15,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb8 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alkahest Bombs 9d8",
                             Level = 17,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb9 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alkahest Bombs 10d8",
                             Level = 19,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb10 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Crypt Breaker's Draught",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _mutagen }
+                            ReplacedAbilities = new List<ClassAbility> { Mutagen }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Trapfinding",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _brewPotion }
+                            ReplacedAbilities = new List<ClassAbility> { BrewPotion }
                         },
                         new ArchetypeAbility
                         {
@@ -1017,7 +625,7 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Enhanced Alkahest",
                             Level = 14,
-                            ReplacedAbilities = new List<ClassAbility> { _persistentMutagen }
+                            ReplacedAbilities = new List<ClassAbility> { PersistentMutagen }
                         }
                     }
                 };
@@ -1036,25 +644,25 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Silent Bomb",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonUse }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonUse }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Targeting Bomb",
                             Level = 3,
-                            ReplacedAbilities = new List<ClassAbility> { _swiftAlchemy }
+                            ReplacedAbilities = new List<ClassAbility> { SwiftAlchemy }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Stonekin",
                             Level = 6,
-                            ReplacedAbilities = new List<ClassAbility> { _swiftPoisoning }
+                            ReplacedAbilities = new List<ClassAbility> { SwiftPoisoning }
                         },
                         new ArchetypeAbility
                         {
-                            Name = _swiftAlchemy.Name,
+                            Name = SwiftAlchemy.Name,
                             Level = 18,
-                            ReplacedAbilities = new List<ClassAbility> { _instantAlchemy }
+                            ReplacedAbilities = new List<ClassAbility> { InstantAlchemy }
                         }
                     }
                 };
@@ -1073,7 +681,7 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Extradimensional Extract",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _discovery4 }
+                            ReplacedAbilities = new List<ClassAbility> { Discovery4 }
                         },
                         new ArchetypeAbility
                         {
@@ -1097,37 +705,37 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Dragonblood Mutagen",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _mutagen, _discovery2, _discovery12, _discovery16 }
+                            ReplacedAbilities = new List<ClassAbility> { Mutagen, Discovery2, Discovery12, Discovery16 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Explosive Breath",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _throwAnything }
+                            ReplacedAbilities = new List<ClassAbility> { ThrowAnything }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Draconic Resistances +2",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2, _poisonUse }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance2, PoisonUse }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Draconic Resistances +4",
                             Level = 6,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance4, _swiftPoisoning }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance4, SwiftPoisoning }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Draconic Resistances +6",
                             Level = 10,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance6 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Draconic Resistances Immunity",
                             Level = 10,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonImmunity }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonImmunity }
                         },
                     }
                 };
@@ -1152,43 +760,43 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Cool-Headed +2",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance2 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Cool-Headed +4",
                             Level = 5,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance4 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Cool-Headed +6",
                             Level = 8,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance6 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Advanced Ectochymistry",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonUse }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonUse }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Swift Ectochymistry",
                             Level = 6,
-                            ReplacedAbilities = new List<ClassAbility> { _swiftPoisoning }
+                            ReplacedAbilities = new List<ClassAbility> { SwiftPoisoning }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Ghost Trap",
                             Level = 8,
-                            ReplacedAbilities = new List<ClassAbility> { _discovery8 }
+                            ReplacedAbilities = new List<ClassAbility> { Discovery8 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Ectochymical Analysis",
                             Level = 10,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonImmunity }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonImmunity }
                         }
                     }
                 };
@@ -1207,7 +815,7 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Ectoplasmic Extracts",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _brewPotion }
+                            ReplacedAbilities = new List<ClassAbility> { BrewPotion }
                         },
                         new ArchetypeAbility
                         {
@@ -1231,73 +839,73 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Arcanotoxin 1",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb1 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb1 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Arcanotoxin 2",
                             Level = 3,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb2 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Arcanotoxin 3",
                             Level = 5,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb3 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Arcanotoxin 4",
                             Level = 7,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Arcanotoxin 5",
                             Level = 9,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb5 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Arcanotoxin 6",
                             Level = 11,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Arcanotoxin 7",
                             Level = 13,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb7 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Arcanotoxin 8",
                             Level = 15,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb8 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Arcanotoxin 9",
                             Level = 17,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb9 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Arcanotoxin 10",
                             Level = 19,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb10 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Toxicologist ",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _throwAnything }
+                            ReplacedAbilities = new List<ClassAbility> { ThrowAnything }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Sneak Attack +1d6",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _mutagen, _persistentMutagen }
+                            ReplacedAbilities = new List<ClassAbility> { Mutagen, PersistentMutagen }
                         },
                         new ArchetypeAbility
                         {
@@ -1346,79 +954,79 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Energy Focus",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _extracts }
+                            ReplacedAbilities = new List<ClassAbility> { Extracts }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energist Bombs 1d6",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonImmunity, _bomb1 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonImmunity, Bomb1 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energist Bombs 2d6",
                             Level = 3,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb2 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energist Bombs 3d6",
                             Level = 5,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb3 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energist Bombs 4d6",
                             Level = 7,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energist Bombs 5d6",
                             Level = 9,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb5 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energist Bombs 6d6",
                             Level = 11,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energist Bombs 7d6",
                             Level = 13,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb7 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energist Bombs 8d6",
                             Level = 15,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb8 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energist Bombs 9d6",
                             Level = 17,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb9 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energist Bombs 10d6",
                             Level = 19,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb10 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Healing Ampoule",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _swiftPoisoning }
+                            ReplacedAbilities = new List<ClassAbility> { SwiftPoisoning }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energist Resistance",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2, _poisonResistance4, _poisonResistance6 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance2, PoisonResistance4, PoisonResistance6 }
                         }
                     }
                 };
@@ -1437,67 +1045,67 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Energy Bombs 1d6",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _brewPotion, _bomb1 }
+                            ReplacedAbilities = new List<ClassAbility> { BrewPotion, Bomb1 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energy Bombs 2d6",
                             Level = 3,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb2 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energy Bombs 3d6",
                             Level = 5,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb3 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energy Bombs 4d6",
                             Level = 7,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energy Bombs 5d6",
                             Level = 9,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb5 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energy Bombs 6d6",
                             Level = 11,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energy Bombs 7d6",
                             Level = 13,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb7 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energy Bombs 8d6",
                             Level = 15,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb8 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energy Bombs 9d6",
                             Level = 17,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb9 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Energy Bombs 10d6",
                             Level = 19,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                            ReplacedAbilities = new List<ClassAbility> { Bomb10 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Limited Extracts",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _extracts },
+                            ReplacedAbilities = new List<ClassAbility> { Extracts },
                             Add = () => LimitedExtracts(true),
                             Remove = () => LimitedExtracts(false)
                         },
@@ -1505,31 +1113,31 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Attuned Resistance +2",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance2 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Attuned Resistance +3",
                             Level = 5,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance4 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Attuned Resistance +4",
                             Level = 8,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance6 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Attuned Resistance (Planar Adaptation)",
                             Level = 10,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonImmunity }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonImmunity }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Salvage Energy",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonUse, _swiftPoisoning }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonUse, SwiftPoisoning }
                         },
                     }
                 };
@@ -1548,31 +1156,31 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Substance Tolerance +2",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2, _poisonResistance4 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance2, PoisonResistance4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Substance Tolerance +3",
                             Level = 8,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance6 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Substance Tolerance +4",
                             Level = 10,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonImmunity, _discovery10 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonImmunity, Discovery10 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Volatile Bombs",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonUse }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonUse }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Batch Brew",
                             Level = 6,
-                            ReplacedAbilities = new List<ClassAbility> { _swiftPoisoning }
+                            ReplacedAbilities = new List<ClassAbility> { SwiftPoisoning }
                         }
                     }
                 };
@@ -1591,67 +1199,67 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Fire Bombardier",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _throwAnything }
+                            ReplacedAbilities = new List<ClassAbility> { ThrowAnything }
                         },
                         new ArchetypeAbility
                         {
-                            Name = _bomb1.Name,
-                            Level = _bomb1.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb1 }
+                            Name = Bomb1.Name,
+                            Level = Bomb1.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb1 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = _bomb2.Name,
-                            Level = _bomb2.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                            Name = Bomb2.Name,
+                            Level = Bomb2.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb2 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = _bomb3.Name,
-                            Level = _bomb3.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                            Name = Bomb3.Name,
+                            Level = Bomb3.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb3 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = _bomb4.Name,
-                            Level = _bomb4.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                            Name = Bomb4.Name,
+                            Level = Bomb4.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb4 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = _bomb5.Name,
-                            Level = _bomb5.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                            Name = Bomb5.Name,
+                            Level = Bomb5.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb5 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = _bomb6.Name,
-                            Level = _bomb6.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                            Name = Bomb6.Name,
+                            Level = Bomb6.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb6 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = _bomb7.Name,
-                            Level = _bomb7.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                            Name = Bomb7.Name,
+                            Level = Bomb7.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb7 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = _bomb8.Name,
-                            Level = _bomb8.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                            Name = Bomb8.Name,
+                            Level = Bomb8.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb8 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = _bomb9.Name,
-                            Level = _bomb9.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                            Name = Bomb9.Name,
+                            Level = Bomb9.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb9 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = _bomb10.Name,
-                            Level = _bomb10.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                            Name = Bomb10.Name,
+                            Level = Bomb10.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb10 }
                         },
                         new ArchetypeAbility
                         {
@@ -1662,25 +1270,25 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Fiery Cocktail",
                             Level = 4,
-                            ReplacedAbilities = new List<ClassAbility> { _discovery4 }
+                            ReplacedAbilities = new List<ClassAbility> { Discovery4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Fire Body",
                             Level = 8,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance6 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Improved Fire Body",
                             Level = 10,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonImmunity }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonImmunity }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Greater Fire Body",
                             Level = 14,
-                            ReplacedAbilities = new List<ClassAbility> { _persistentMutagen }
+                            ReplacedAbilities = new List<ClassAbility> { PersistentMutagen }
                         },
                     }
                 };
@@ -1699,73 +1307,73 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Primal Reagents",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _brewPotion, _poisonUse, _swiftPoisoning, _poisonImmunity }
+                            ReplacedAbilities = new List<ClassAbility> { BrewPotion, PoisonUse, SwiftPoisoning, PoisonImmunity }
                         },
                         new ArchetypeAbility
                         {
-                            Name = "Limited " + _bomb1.Name,
-                            Level = _bomb1.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb1 }
+                            Name = "Limited " + Bomb1.Name,
+                            Level = Bomb1.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb1 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = "Limited " + _bomb2.Name,
-                            Level = _bomb2.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                            Name = "Limited " + Bomb2.Name,
+                            Level = Bomb2.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb2 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = "Limited " + _bomb3.Name,
-                            Level = _bomb3.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                            Name = "Limited " + Bomb3.Name,
+                            Level = Bomb3.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb3 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = "Limited " + _bomb4.Name,
-                            Level = _bomb4.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                            Name = "Limited " + Bomb4.Name,
+                            Level = Bomb4.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb4 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = "Limited " + _bomb5.Name,
-                            Level = _bomb5.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                            Name = "Limited " + Bomb5.Name,
+                            Level = Bomb5.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb5 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = "Limited " + _bomb6.Name,
-                            Level = _bomb6.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                            Name = "Limited " + Bomb6.Name,
+                            Level = Bomb6.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb6 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = "Limited " + _bomb7.Name,
-                            Level = _bomb7.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                            Name = "Limited " + Bomb7.Name,
+                            Level = Bomb7.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb7 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = "Limited " + _bomb8.Name,
-                            Level = _bomb8.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                            Name = "Limited " + Bomb8.Name,
+                            Level = Bomb8.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb8 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = "Limited " + _bomb9.Name,
-                            Level = _bomb9.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                            Name = "Limited " + Bomb9.Name,
+                            Level = Bomb9.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb9 }
                         },
                         new ArchetypeAbility
                         {
-                            Name = "Limited " + _bomb10.Name,
-                            Level = _bomb10.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                            Name = "Limited " + Bomb10.Name,
+                            Level = Bomb10.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb10 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Refined Reagents",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2, _poisonResistance4, _poisonResistance6 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance2, PoisonResistance4, PoisonResistance6 }
                         }
                     }
                 };
@@ -1783,62 +1391,62 @@ namespace PathfinderModelling.Model.Classes
                         new ArchetypeAbility
                         {
                             Name = "Gloom 1d6",
-                            Level = _bomb1.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb1 }
+                            Level = Bomb1.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb1 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Gloom 2d6",
-                            Level = _bomb2.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                            Level = Bomb2.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb2 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Gloom 3d6",
-                            Level = _bomb3.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                            Level = Bomb3.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb3 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Gloom 4d6",
-                            Level = _bomb4.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                            Level = Bomb4.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Gloom 5d6",
-                            Level = _bomb5.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                            Level = Bomb5.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb5 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Gloom 6d6",
-                            Level = _bomb6.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                            Level = Bomb6.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Gloom 7d6",
-                            Level = _bomb7.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                            Level = Bomb7.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb7 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Gloom 8d6",
-                            Level = _bomb8.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                            Level = Bomb8.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb8 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Gloom 9d6",
-                            Level = _bomb9.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                            Level = Bomb9.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb9 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Gloom 10d6",
-                            Level = _bomb10.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                            Level = Bomb10.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb10 }
                         },
                         new ArchetypeAbility
                         {
@@ -1863,31 +1471,31 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Martial Weapon Proficiency",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _brewPotion }
+                            ReplacedAbilities = new List<ClassAbility> { BrewPotion }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alchemical Weapon",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2, _poisonResistance4, _poisonResistance6 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance2, PoisonResistance4, PoisonResistance6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Precise Bombs",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonUse }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonUse }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Directed Blast",
                             Level = 6,
-                            ReplacedAbilities = new List<ClassAbility> { _swiftPoisoning }
+                            ReplacedAbilities = new List<ClassAbility> { SwiftPoisoning }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Staggering Blast",
                             Level = 10,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonImmunity }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonImmunity }
                         }
                     }
                 };
@@ -1906,31 +1514,31 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Martial Weapon Proficiency",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _brewPotion }
+                            ReplacedAbilities = new List<ClassAbility> { BrewPotion }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alchemical Weapon",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2, _poisonResistance4, _poisonResistance6 }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance2, PoisonResistance4, PoisonResistance6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Precise Bombs",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonUse }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonUse }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Directed Blast",
                             Level = 6,
-                            ReplacedAbilities = new List<ClassAbility> { _swiftPoisoning }
+                            ReplacedAbilities = new List<ClassAbility> { SwiftPoisoning }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Staggering Blast",
                             Level = 10,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonImmunity }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonImmunity }
                         }
                     }
                 };
@@ -1948,68 +1556,68 @@ namespace PathfinderModelling.Model.Classes
                         new ArchetypeAbility
                         {
                             Name = "Alchemical Ordnance 1d6",
-                            Level = _bomb1.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb1 }
+                            Level = Bomb1.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb1 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alchemical Ordnance 2d6",
-                            Level = _bomb2.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                            Level = Bomb2.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb2 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alchemical Ordnance 3d6",
-                            Level = _bomb3.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                            Level = Bomb3.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb3 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alchemical Ordnance 4d6",
-                            Level = _bomb4.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                            Level = Bomb4.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alchemical Ordnance 5d6",
-                            Level = _bomb5.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                            Level = Bomb5.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb5 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alchemical Ordnance 6d6",
-                            Level = _bomb6.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                            Level = Bomb6.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alchemical Ordnance 7d6",
-                            Level = _bomb7.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                            Level = Bomb7.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb7 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alchemical Ordnance 8d6",
-                            Level = _bomb8.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                            Level = Bomb8.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb8 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alchemical Ordnance 9d6",
-                            Level = _bomb9.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                            Level = Bomb9.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb9 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Alchemical Ordnance 10d6",
-                            Level = _bomb10.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                            Level = Bomb10.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb10 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Gunsmith",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _brewPotion, _throwAnything }
+                            ReplacedAbilities = new List<ClassAbility> { BrewPotion, ThrowAnything }
                         },
                         new ArchetypeAbility
                         {
@@ -2020,7 +1628,7 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Cartridge Savant +1",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2, _poisonResistance4, _poisonResistance6, _poisonImmunity }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance2, PoisonResistance4, PoisonResistance6, PoisonImmunity }
                         },
                         new ArchetypeAbility
                         {
@@ -2056,7 +1664,7 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Repeat Fire",
                             Level = 6,
-                            ReplacedAbilities = new List<ClassAbility> { _swiftPoisoning }
+                            ReplacedAbilities = new List<ClassAbility> { SwiftPoisoning }
                         }
                     }
                 };
@@ -2075,67 +1683,67 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Natural Magic",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _throwAnything }
+                            ReplacedAbilities = new List<ClassAbility> { ThrowAnything }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Seedpods 1d6",
-                            Level = _bomb1.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb1, _poisonUse, _poisonResistance2, _poisonResistance4, _poisonResistance6, _poisonImmunity }
+                            Level = Bomb1.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb1, PoisonUse, PoisonResistance2, PoisonResistance4, PoisonResistance6, PoisonImmunity }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Seedpods 2d6",
-                            Level = _bomb2.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                            Level = Bomb2.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb2 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Seedpods 3d6",
-                            Level = _bomb3.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                            Level = Bomb3.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb3 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Seedpods 4d6",
-                            Level = _bomb4.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                            Level = Bomb4.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Seedpods 5d6",
-                            Level = _bomb5.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                            Level = Bomb5.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb5 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Seedpods 6d6",
-                            Level = _bomb6.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                            Level = Bomb6.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Seedpods 7d6",
-                            Level = _bomb7.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                            Level = Bomb7.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb7 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Seedpods 8d6",
-                            Level = _bomb8.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                            Level = Bomb8.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb8 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Seedpods 9d6",
-                            Level = _bomb9.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                            Level = Bomb9.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb9 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Seedpods 10d6",
-                            Level = _bomb10.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                            Level = Bomb10.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb10 }
                         },
                     }
                 };
@@ -2160,7 +1768,7 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Homunculus Familiar",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _mutagen }
+                            ReplacedAbilities = new List<ClassAbility> { Mutagen }
                         },
                         new ArchetypeAbility
                         {
@@ -2204,91 +1812,91 @@ namespace PathfinderModelling.Model.Classes
                         {
                             Name = "Seed Extract",
                             Level = 1,
-                            ReplacedAbilities = new List<ClassAbility> { _mutagen, _discovery2 }
+                            ReplacedAbilities = new List<ClassAbility> { Mutagen, Discovery2 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Herbal Bombs 1d6",
-                            Level = _bomb1.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb1 }
+                            Level = Bomb1.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb1 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Herbal Bombs 2d6",
-                            Level = _bomb2.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                            Level = Bomb2.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb2 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Herbal Bombs 3d6",
-                            Level = _bomb3.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                            Level = Bomb3.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb3 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Herbal Bombs 4d6",
-                            Level = _bomb4.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                            Level = Bomb4.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Herbal Bombs 5d6",
-                            Level = _bomb5.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                            Level = Bomb5.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb5 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Herbal Bombs 6d6",
-                            Level = _bomb6.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                            Level = Bomb6.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Herbal Bombs 7d6",
-                            Level = _bomb7.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                            Level = Bomb7.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb7 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Herbal Bombs 8d6",
-                            Level = _bomb8.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                            Level = Bomb8.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb8 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Herbal Bombs 9d6",
-                            Level = _bomb9.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                            Level = Bomb9.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb9 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Herbal Bombs 10d6",
-                            Level = _bomb10.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                            Level = Bomb10.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb10 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Plant Voice +2",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2, _poisonResistance4, _poisonResistance6, _poisonUse }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance2, PoisonResistance4, PoisonResistance6, PoisonUse }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Plant Voice (Speak With Plants)",
                             Level = 10,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonImmunity }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonImmunity }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Plant Familiar",
                             Level = 4,
-                            ReplacedAbilities = new List<ClassAbility> { _discovery4 }
+                            ReplacedAbilities = new List<ClassAbility> { Discovery4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Fury of Nature",
                             Level = 14,
-                            ReplacedAbilities = new List<ClassAbility> { _persistentMutagen }
+                            ReplacedAbilities = new List<ClassAbility> { PersistentMutagen }
                         }
                     }
                 };
@@ -2306,74 +1914,74 @@ namespace PathfinderModelling.Model.Classes
                         new ArchetypeAbility
                         {
                             Name = "Icy Bombs 1d6",
-                            Level = _bomb1.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb1 }
+                            Level = Bomb1.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb1 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Icy Bombs 2d6",
-                            Level = _bomb2.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb2 }
+                            Level = Bomb2.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb2 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Icy Bombs 3d6",
-                            Level = _bomb3.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb3 }
+                            Level = Bomb3.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb3 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Icy Bombs 4d6",
-                            Level = _bomb4.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb4 }
+                            Level = Bomb4.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb4 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Icy Bombs 5d6",
-                            Level = _bomb5.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb5 }
+                            Level = Bomb5.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb5 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Icy Bombs 6d6",
-                            Level = _bomb6.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb6 }
+                            Level = Bomb6.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb6 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Icy Bombs 7d6",
-                            Level = _bomb7.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb7 }
+                            Level = Bomb7.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb7 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Icy Bombs 8d6",
-                            Level = _bomb8.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb8 }
+                            Level = Bomb8.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb8 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Icy Bombs 9d6",
-                            Level = _bomb9.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb9 }
+                            Level = Bomb9.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb9 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Icy Bombs 10d6",
-                            Level = _bomb10.Level,
-                            ReplacedAbilities = new List<ClassAbility> { _bomb10 }
+                            Level = Bomb10.Level,
+                            ReplacedAbilities = new List<ClassAbility> { Bomb10 }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Cold Sweat",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _poisonResistance2, _poisonResistance4, _poisonResistance6, _poisonImmunity }
+                            ReplacedAbilities = new List<ClassAbility> { PoisonResistance2, PoisonResistance4, PoisonResistance6, PoisonImmunity }
                         },
                         new ArchetypeAbility
                         {
                             Name = "Frost Bomb",
                             Level = 2,
-                            ReplacedAbilities = new List<ClassAbility> { _discovery2 }
+                            ReplacedAbilities = new List<ClassAbility> { Discovery2 }
                         }
                     }
                 };
