@@ -117,6 +117,11 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new InspiredChemist(this));
             Archetypes.Add(new InternalAlchemist(this));
             Archetypes.Add(new Interrogator(this));
+            Archetypes.Add(new MadScientist(this));
+            Archetypes.Add(new Metamorph(this));
+            Archetypes.Add(new Mindchemist(this));
+            Archetypes.Add(new Mixologist(this));
+            Archetypes.Add(new Mnemostiller(this));
         }
 
         public void LimitedExtracts(bool activate)
