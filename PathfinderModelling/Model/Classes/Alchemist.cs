@@ -122,6 +122,13 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new Mindchemist(this));
             Archetypes.Add(new Mixologist(this));
             Archetypes.Add(new Mnemostiller(this));
+            Archetypes.Add(new OenopionResearcher(this));
+            Archetypes.Add(new Oozemaster(this));
+            Archetypes.Add(new Perfumer(this));
+            Archetypes.Add(new PlagueBringer(this));
+            Archetypes.Add(new Preservationist(this));
+            Archetypes.Add(new PrometheanAlchemist(this));
+            Archetypes.Add(new Psychonaut(this));
         }
 
         public void LimitedExtracts(bool activate)
