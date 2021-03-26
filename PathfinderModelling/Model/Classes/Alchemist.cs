@@ -129,6 +129,18 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new Preservationist(this));
             Archetypes.Add(new PrometheanAlchemist(this));
             Archetypes.Add(new Psychonaut(this));
+            Archetypes.Add(new Ragechemist(this));
+            Archetypes.Add(new Reanimator(this));
+            Archetypes.Add(new RoyalAlchemist(this));
+            Archetypes.Add(new Saboteur(this));
+            Archetypes.Add(new SacramentAlchemist(this));
+            Archetypes.Add(new Tinkerer(this));
+            Archetypes.Add(new Toxicant(this));
+            Archetypes.Add(new TrapBreaker(this));
+            Archetypes.Add(new Vaultbreaker(this));
+            Archetypes.Add(new Vivisectionist(this));
+            Archetypes.Add(new WastelandBlightbreaker(this));
+            Archetypes.Add(new WingedMarauder(this));
         }
 
         public void LimitedExtracts(bool activate)
