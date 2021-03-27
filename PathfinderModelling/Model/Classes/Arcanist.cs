@@ -63,6 +63,20 @@ namespace PathfinderModelling.Model.Classes
             };
 
             Archetypes.Add(new Aeromancer(this));
+            Archetypes.Add(new ArcaneTinkerer(this));
+            Archetypes.Add(new BladeAdept(this));
+            Archetypes.Add(new BloodArcanist(this));
+            Archetypes.Add(new BrownFurTransmuter(this));
+            Archetypes.Add(new EldritchFont(this));
+            Archetypes.Add(new ElementalMaster(this));
+            Archetypes.Add(new HarrowedSocietyStudent(this));
+            Archetypes.Add(new MagaambyanInitiate(this));
+            Archetypes.Add(new Archetypes.Arcanist.Occultist(this));
+            Archetypes.Add(new SchoolSavant(this));
+            Archetypes.Add(new SpellSpecialist(this));
+            Archetypes.Add(new TwilightSage(this));
+            Archetypes.Add(new UnletteredArcanist(this));
+            Archetypes.Add(new WhiteMage(this));
         }
 
         readonly ClassAbility _arcaneResevoir = new ClassAbility { Name = "Arcane Resevoir", Level = 1 };
