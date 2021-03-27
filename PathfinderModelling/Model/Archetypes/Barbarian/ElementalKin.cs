@@ -10,6 +10,7 @@ namespace PathfinderModelling.Model.Archetypes.Barbarian
         public ElementalKin(Classes.Barbarian barbarian)
         {
             Name = "Elemental Kin";
+            ArchetypeAbilities = new List<ArchetypeAbility>();
             ArchetypeAbilities.AddRange(barbarian.ClassAbilities
                 .Where(a => a.Name.Contains("Trap Sense"))
                 .Select(a => new ArchetypeAbility
