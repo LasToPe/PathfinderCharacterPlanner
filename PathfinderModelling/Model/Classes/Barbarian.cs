@@ -66,6 +66,11 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new GiantStalker(this));
             Archetypes.Add(new HatefulRager(this));
             Archetypes.Add(new Hurler(this));
+            Archetypes.Add(new InvulnerableRager(this));
+            Archetypes.Add(new JungleRager(this));
+            Archetypes.Add(new MadDog(this));
+            Archetypes.Add(new Mooncursed(this));
+            Archetypes.Add(new MountedFury(this));
         }
 
         readonly ClassAbility _fastMovement = new ClassAbility { Name = "Fast Movement", Level = 1 };
