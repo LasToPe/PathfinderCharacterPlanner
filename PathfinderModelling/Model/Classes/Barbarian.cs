@@ -59,6 +59,12 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new DrunkenBrute(this));
             Archetypes.Add(new DrunkenRager(this));
             Archetypes.Add(new ElementalKin(this));
+            Archetypes.Add(new FearsomeDefender(this));
+            Archetypes.Add(new FeralGnasher(this));
+            Archetypes.Add(new Flesheater(this));
+            Archetypes.Add(new GeminateInvoker(this));
+            Archetypes.Add(new GiantStalker(this));
+            Archetypes.Add(new HatefulRager(this));
         }
 
         readonly ClassAbility _fastMovement = new ClassAbility { Name = "Fast Movement", Level = 1 };
