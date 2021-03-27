@@ -25,7 +25,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <ListView ItemsSource="{Binding Archetypes}" SelectionChanged="ListView_SelectionChanged" Margin="10">
+        <ListView ItemsSource="{Binding AvailableArcheTypes}" SelectionChanged="ListView_SelectionChanged" Margin="10">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}" />
