@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PathfinderModelling.Model.Archetypes.Arcanist;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -43,23 +44,74 @@ namespace PathfinderModelling.Model.Classes
             };
             ClassAbilities = new List<ClassAbility>
             {
-                new ClassAbility { Name = "Arcane Resevoir", Level = 1 },
-                new ClassAbility { Name = "Arcanist Exploit", Level = 1 },
-                new ClassAbility { Name = "Arcanist Exploit", Level = 3 },
-                new ClassAbility { Name = "Arcanist Exploit", Level = 5 },
-                new ClassAbility { Name = "Arcanist Exploit", Level = 7 },
-                new ClassAbility { Name = "Arcanist Exploit", Level = 9 },
-                new ClassAbility { Name = "Arcanist Exploit", Level = 11 },
-                new ClassAbility { Name = "Arcanist Exploit", Level = 13 },
-                new ClassAbility { Name = "Arcanist Exploit", Level = 15 },
-                new ClassAbility { Name = "Arcanist Exploit", Level = 17 },
-                new ClassAbility { Name = "Arcanist Exploit", Level = 19 },
-                new ClassAbility { Name = "Cantrips", Level = 1 },
-                new ClassAbility { Name = "Consume Spells", Level = 1 },
-                new ClassAbility { Name = "Spells", Level = 1 },
-                new ClassAbility { Name = "Greater Exploits", Level = 11 },
-                new ClassAbility { Name = "Magical Supremacy", Level = 20 },
+                ArcaneResevoir,
+                ArcanistExploit1,
+                ArcanistExploit3,
+                ArcanistExploit5,
+                ArcanistExploit7,
+                ArcanistExploit9,
+                ArcanistExploit11,
+                ArcanistExploit13,
+                ArcanistExploit15,
+                ArcanistExploit17,
+                ArcanistExploit19,
+                Cantrips,
+                ConsumeSpells,
+                Spells,
+                GreaterExploits,
+                MagicalSupremacy,
             };
+
+            Archetypes.Add(new Aeromancer(this));
         }
+
+        readonly ClassAbility _arcaneResevoir = new ClassAbility { Name = "Arcane Resevoir", Level = 1 };
+        readonly ClassAbility _arcanistExploit1 = new ClassAbility { Name = "Arcanist Exploit", Level = 1 };
+        readonly ClassAbility _arcanistExploit3 = new ClassAbility { Name = "Arcanist Exploit", Level = 3 };
+        readonly ClassAbility _arcanistExploit5 = new ClassAbility { Name = "Arcanist Exploit", Level = 5 };
+        readonly ClassAbility _arcanistExploit7 = new ClassAbility { Name = "Arcanist Exploit", Level = 7 };
+        readonly ClassAbility _arcanistExploit9 = new ClassAbility { Name = "Arcanist Exploit", Level = 9 };
+        readonly ClassAbility _arcanistExploit11 = new ClassAbility { Name = "Arcanist Exploit", Level = 11 };
+        readonly ClassAbility _arcanistExploit13 = new ClassAbility { Name = "Arcanist Exploit", Level = 13 };
+        readonly ClassAbility _arcanistExploit15 = new ClassAbility { Name = "Arcanist Exploit", Level = 15 };
+        readonly ClassAbility _arcanistExploit17 = new ClassAbility { Name = "Arcanist Exploit", Level = 17 };
+        readonly ClassAbility _arcanistExploit19 = new ClassAbility { Name = "Arcanist Exploit", Level = 19 };
+        readonly ClassAbility _cantrips = new ClassAbility { Name = "Cantrips", Level = 1 };
+        readonly ClassAbility _consumeSpells = new ClassAbility { Name = "Consume Spells", Level = 1 };
+        readonly ClassAbility _spells = new ClassAbility { Name = "Spells", Level = 1 };
+        readonly ClassAbility _greaterExploits = new ClassAbility { Name = "Greater Exploits", Level = 11 };
+        readonly ClassAbility _magicalSupremacy = new ClassAbility { Name = "Magical Supremacy", Level = 20 };
+
+        public ClassAbility ArcaneResevoir => _arcaneResevoir;
+
+        public ClassAbility ArcanistExploit1 => _arcanistExploit1;
+
+        public ClassAbility ArcanistExploit3 => _arcanistExploit3;
+
+        public ClassAbility ArcanistExploit5 => _arcanistExploit5;
+
+        public ClassAbility ArcanistExploit7 => _arcanistExploit7;
+
+        public ClassAbility ArcanistExploit9 => _arcanistExploit9;
+
+        public ClassAbility ArcanistExploit11 => _arcanistExploit11;
+
+        public ClassAbility ArcanistExploit13 => _arcanistExploit13;
+
+        public ClassAbility ArcanistExploit15 => _arcanistExploit15;
+
+        public ClassAbility ArcanistExploit17 => _arcanistExploit17;
+
+        public ClassAbility ArcanistExploit19 => _arcanistExploit19;
+
+        public ClassAbility Cantrips => _cantrips;
+
+        public ClassAbility ConsumeSpells => _consumeSpells;
+
+        public ClassAbility Spells => _spells;
+
+        public ClassAbility GreaterExploits => _greaterExploits;
+
+        public ClassAbility MagicalSupremacy => _magicalSupremacy;
     }
 }
