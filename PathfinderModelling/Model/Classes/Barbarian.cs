@@ -71,6 +71,24 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new MadDog(this));
             Archetypes.Add(new Mooncursed(this));
             Archetypes.Add(new MountedFury(this));
+            Archetypes.Add(new NumerianLiberator(this));
+            Archetypes.Add(new PackHunter(this));
+            Archetypes.Add(new PackRager(this));
+            Archetypes.Add(new PrimalHunter(this));
+            Archetypes.Add(new RagingCannibal(this));
+            Archetypes.Add(new SavageBarbarian(this));
+            Archetypes.Add(new SavageTechnologist(this));
+            Archetypes.Add(new ScarredRager(this));
+            Archetypes.Add(new SeaReaver(this));
+            Archetypes.Add(new ShoantiBurnRider(this));
+            Archetypes.Add(new Superstitious(this));
+            Archetypes.Add(new TitanMauler(this));
+            Archetypes.Add(new TotemWarrior());
+            Archetypes.Add(new TruePrimitive(this));
+            Archetypes.Add(new UntamedRager(this));
+            Archetypes.Add(new UrbanBarbarian(this));
+            Archetypes.Add(new WildRager(this));
+            Archetypes.Add(new Wildborn(this));
         }
 
         readonly ClassAbility _fastMovement = new ClassAbility { Name = "Fast Movement", Level = 1 };
