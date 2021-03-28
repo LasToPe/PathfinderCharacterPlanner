@@ -98,6 +98,17 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new CourtBard(this));
             Archetypes.Add(new CourtFool(this));
             Archetypes.Add(new Cultivator(this));
+            Archetypes.Add(new Daredevil(this));
+            Archetypes.Add(new DawnflowerDervish(this));
+            Archetypes.Add(new Demagogue(this));
+            Archetypes.Add(new DervishDancer(this));
+            Archetypes.Add(new Detective(this));
+            Archetypes.Add(new DirgeBard(this));
+            Archetypes.Add(new DiscipleOfTheForkedTongue(this));
+            Archetypes.Add(new DragonHerald(this));
+            Archetypes.Add(new DragonYapper(this));
+            Archetypes.Add(new Duettist(this));
+            Archetypes.Add(new DwarvenScholar(this));
         }
 
         readonly ClassAbility _bardicKnowledge = new ClassAbility { Name = "Bardic Knowledge", Level = 1 };
