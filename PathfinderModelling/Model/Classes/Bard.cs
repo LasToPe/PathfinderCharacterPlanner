@@ -133,6 +133,21 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new PlantSpeaker(this));
             Archetypes.Add(new Prankster(this));
             Archetypes.Add(new Provocateur(this));
+            Archetypes.Add(new RingleaderAG(this));
+            Archetypes.Add(new RingleaderUI(this));
+            Archetypes.Add(new Sandman(this));
+            Archetypes.Add(new SavageSkald(this));
+            Archetypes.Add(new SeaSinger(this));
+            Archetypes.Add(new ShadowPuppeteer(this));
+            Archetypes.Add(new SilverBalladeer(this));
+            Archetypes.Add(new Solacer(this));
+            Archetypes.Add(new Songhealer(this));
+            Archetypes.Add(new Sorrowsoul(this));
+            Archetypes.Add(new SoundStriker(this));
+            Archetypes.Add(new SpeakerOfThePalatineEye(this));
+            Archetypes.Add(new Stonesinger(this));
+            Archetypes.Add(new StreetPerformer(this));
+            Archetypes.Add(new StudiousLibrarian(this));
         }
 
         readonly ClassAbility _bardicKnowledge = new ClassAbility { Name = "Bardic Knowledge", Level = 1 };
