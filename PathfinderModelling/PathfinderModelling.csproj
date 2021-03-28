@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Model\Archetypes\BarbarianUnchained\" />
-    <Folder Include="Model\Archetypes\Bard\" />
   </ItemGroup>
 
 </Project>
