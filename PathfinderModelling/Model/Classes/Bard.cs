@@ -117,6 +117,13 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new FlameDancer(this));
             Archetypes.Add(new Flamesinger(this));
             Archetypes.Add(new FortuneTeller(this));
+            Archetypes.Add(new Geisha(this));
+            Archetypes.Add(new HatharatAgent(this));
+            Archetypes.Add(new Hoaxer(this));
+            Archetypes.Add(new ImperviousMessenger(this));
+            Archetypes.Add(new Juggler(this));
+            Archetypes.Add(new LotusGeisha(this));
+            Archetypes.Add(new LuringPiper(this));
         }
 
         readonly ClassAbility _bardicKnowledge = new ClassAbility { Name = "Bardic Knowledge", Level = 1 };
