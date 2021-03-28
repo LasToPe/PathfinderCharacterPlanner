@@ -89,6 +89,9 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new ArgentVoice(this));
             Archetypes.Add(new ArrowsongMinstrel(this));
             Archetypes.Add(new AverakaArbiter(this));
+            Archetypes.Add(new BrazenDeceiver(this));
+            Archetypes.Add(new Buccaneer(this));
+            Archetypes.Add(new Busker(this));
         }
 
         readonly ClassAbility _bardicKnowledge = new ClassAbility { Name = "Bardic Knowledge", Level = 1 };
