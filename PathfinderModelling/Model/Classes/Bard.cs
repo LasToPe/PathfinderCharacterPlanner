@@ -148,6 +148,12 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new Stonesinger(this));
             Archetypes.Add(new StreetPerformer(this));
             Archetypes.Add(new StudiousLibrarian(this));
+            Archetypes.Add(new Thundercaller(this));
+            Archetypes.Add(new VoiceOfBrigh(this));
+            Archetypes.Add(new VoiceOfTheWild(this));
+            Archetypes.Add(new WastelandChronicler(this));
+            Archetypes.Add(new Watersinger(this));
+            Archetypes.Add(new Wit(this));
         }
 
         readonly ClassAbility _bardicKnowledge = new ClassAbility { Name = "Bardic Knowledge", Level = 1 };
