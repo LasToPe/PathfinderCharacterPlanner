@@ -109,6 +109,14 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new DragonYapper(this));
             Archetypes.Add(new Duettist(this));
             Archetypes.Add(new DwarvenScholar(this));
+            Archetypes.Add(new FaithSinger(this));
+            Archetypes.Add(new FeyCourtier(this));
+            Archetypes.Add(new FeyPrankster(this));
+            Archetypes.Add(new Filidh(this));
+            Archetypes.Add(new FirstWorldMinstrel(this));
+            Archetypes.Add(new FlameDancer(this));
+            Archetypes.Add(new Flamesinger(this));
+            Archetypes.Add(new FortuneTeller(this));
         }
 
         readonly ClassAbility _bardicKnowledge = new ClassAbility { Name = "Bardic Knowledge", Level = 1 };
