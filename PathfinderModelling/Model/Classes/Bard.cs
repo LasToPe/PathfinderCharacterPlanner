@@ -92,6 +92,12 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new BrazenDeceiver(this));
             Archetypes.Add(new Buccaneer(this));
             Archetypes.Add(new Busker(this));
+            Archetypes.Add(new Celebrity(this));
+            Archetypes.Add(new ChelishDiva(this));
+            Archetypes.Add(new ChroniclerOfWorlds(this));
+            Archetypes.Add(new CourtBard(this));
+            Archetypes.Add(new CourtFool(this));
+            Archetypes.Add(new Cultivator(this));
         }
 
         readonly ClassAbility _bardicKnowledge = new ClassAbility { Name = "Bardic Knowledge", Level = 1 };
