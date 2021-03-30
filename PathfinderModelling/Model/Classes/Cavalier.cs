@@ -67,6 +67,20 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new HoodedKnight(this));
             Archetypes.Add(new Huntmaster(this));
             Archetypes.Add(new Hussar(this));
+            Archetypes.Add(new KnightOfArnisant(this));
+            Archetypes.Add(new LuringCavalier(this));
+            Archetypes.Add(new Musketeer(this));
+            Archetypes.Add(new Oceanrider(this));
+            Archetypes.Add(new QabaratOutrider(this));
+            Archetypes.Add(new QadiranHorselord(this));
+            Archetypes.Add(new SaurianChampion(this));
+            Archetypes.Add(new SisterInArms(this));
+            Archetypes.Add(new SpellscarDrifter(this));
+            Archetypes.Add(new StandardBearer(this));
+            Archetypes.Add(new Strategist(this));
+            Archetypes.Add(new Verdivant(this));
+            Archetypes.Add(new VerminTamer(this));
+            Archetypes.Add(new WaveRider(this));
         }
 
         readonly ClassAbility _challenge1 = new ClassAbility { Name = "Challenge 1/day", Level = 1 };
