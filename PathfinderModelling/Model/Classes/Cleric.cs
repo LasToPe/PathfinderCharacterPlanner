@@ -70,6 +70,10 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new CloisteredCleric(this));
             Archetypes.Add(new CrashingWave(this));
             Archetypes.Add(new Crusader(this));
+            Archetypes.Add(new DemonicApostle(this));
+            Archetypes.Add(new DivineParagon(this));
+            Archetypes.Add(new DivineScourge(this));
+            Archetypes.Add(new DivineStrategist(this));
         }
 
         public void DiminishedSpellCasting(bool activate)
