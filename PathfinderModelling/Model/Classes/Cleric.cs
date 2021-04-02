@@ -74,6 +74,9 @@ namespace PathfinderModelling.Model.Classes
             Archetypes.Add(new DivineParagon(this));
             Archetypes.Add(new DivineScourge(this));
             Archetypes.Add(new DivineStrategist(this));
+            Archetypes.Add(new Ecclesitheurge(this));
+            Archetypes.Add(new ElderMythosCultist(this));
+            Archetypes.Add(new Evangelist(this));
         }
 
         public void DiminishedSpellCasting(bool activate)
